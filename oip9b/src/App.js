@@ -1,25 +1,61 @@
-import logo from './logo.svg';
-import './App.css';
+import { Curio } from './components/Curio';
+import React, { useRef, useEffect, useState } from "react";
 
-function App() {
+
+const App = () => {
+  
+  /*----------------------------------------------------------------------------------------------------------------*/
+  const [greeting, setGreeting] = useState("");
+  const [curio   , setCurio]    = useState(null);
+  const runOnce = useRef(true);
+  /*----------------------------------------------------------------------------------------------------------------*/
+
+  useEffect(() => {
+    if (runOnce.current) {
+      runOnce.current = false;
+      setGreeting("Welcome to Team 9B Curio project for Summer Widening 2023!");
+      setCurio( new Curio() );
+    }
+  }, [runOnce]);
+  /*----------------------------------------------------------------------------------------------------------------*/
+  const connectToRobot = () => {
+    if(curio != null)
+    {
+      alert("Curio Initialized");
+    }
+    else
+    {
+      alert("Curio not initialized");
+    }
+    return;
+  }
+  const onButtonClick1 = () => {
+    alert("Hello World");
+    return;
+  }
+  /*----------------------------------------------------------------------------------------------------------------*/
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+        <React.StrictMode>
+          <center>
+              <div>
+                  <h1>{greeting}</h1>
+              </div>
+          </center>
+          <div>
+              <span>Step 1 : </span><input type="button" onClick={connectToRobot} value="Connect to Robot"/>
+          </div>
+        </React.StrictMode>
+    </>
   );
+  /*----------------------------------------------------------------------------------------------------------------*/
 }
+
+App.getLayout = (page) => (
+  <>
+      {page}
+  </>
+);
 
 export default App;
