@@ -35,7 +35,7 @@ const App = () => {
 }
 /*----------------------------------------------------------------------------------------------------------------*/
 const detectKeyRelease = (e) => {
-  if( curio && isConnected )
+  if( curio && curio.getConnection() )
   {
     curio.stop();
     console.log('Stop');
@@ -47,8 +47,7 @@ const detectKeyRelease = (e) => {
       runOnce.current = false;
       setGreeting("Welcome to Team 9B Curio project for Summer Widening 2023!");
       setCurio( new Curio() );
-      document.addEventListener('keydown' , detectKeyPressed , true )
-      document.addEventListener('keyup'   , detectKeyRelease , true )
+      
     }
   }, [runOnce]);
   /*----------------------------------------------------------------------------------------------------------------*/
@@ -60,7 +59,10 @@ const detectKeyRelease = (e) => {
         {
             curio.connect(() => {
                                   console.log("Connected");
+                                  window.addEventListener('keydown' , (e)=> detectKeyPressed(e) )
+                                  window.addEventListener('keyup'   , (e)=> detectKeyRelease(e) )
                                   setConnect(true);
+                                  curio.setConnection(true);
                                 }
                          );
         }
@@ -78,6 +80,7 @@ const detectKeyRelease = (e) => {
       curio.disconnect(() => {
                                 console.log("Disconnected");
                                 setConnect(false);
+                                curio.setConnection(false);
                              }
                       );
     }
@@ -85,7 +88,7 @@ const detectKeyRelease = (e) => {
   }
   /*----------------------------------------------------------------------------------------------------------------*/
   const moveForward = () =>{
-    if( curio && isConnected )
+    if( curio && curio.getConnection() )
     {
       curio.forward();
     }
@@ -93,7 +96,7 @@ const detectKeyRelease = (e) => {
   }
   /*----------------------------------------------------------------------------------------------------------------*/
   const moveBackward = () =>{
-    if( curio && isConnected )
+    if( curio && curio.getConnection() )
     {
       curio.backward();
     }
@@ -101,7 +104,7 @@ const detectKeyRelease = (e) => {
   }
   /*----------------------------------------------------------------------------------------------------------------*/
   const turnLeft = () =>{
-    if( curio && isConnected )
+    if( curio && curio.getConnection() )
     {
       curio.turnLeft();
     }
@@ -109,7 +112,7 @@ const detectKeyRelease = (e) => {
   }
   /*----------------------------------------------------------------------------------------------------------------*/
   const turnRight = () =>{
-    if( curio && isConnected )
+    if( curio && curio.getConnection() )
     {
       curio.turnRight();
     }
@@ -117,7 +120,7 @@ const detectKeyRelease = (e) => {
   }
   /*----------------------------------------------------------------------------------------------------------------*/
   const stop = () =>{
-    if( curio && isConnected )
+    if( curio && curio.getConnection() )
     {
       curio.stop();
     }
