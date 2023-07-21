@@ -5,9 +5,10 @@ import React, { useRef, useEffect, useState } from "react";
 const App = () => {
   
   /*----------------------------------------------------------------------------------------------------------------*/
-  const [greeting, setGreeting] = useState("");
-  const [curio   , setCurio]    = useState(null);
-  const runOnce = useRef(true);
+  const [greeting    , setGreeting] = useState("");
+  const [curio       , setCurio]    = useState(null);
+  const [isConnected , setConnect]  = useState(false);
+  const runOnce                     = useRef(true);
   /*----------------------------------------------------------------------------------------------------------------*/
 
   useEffect(() => {
@@ -19,9 +20,16 @@ const App = () => {
   }, [runOnce]);
   /*----------------------------------------------------------------------------------------------------------------*/
   const connectToRobot = () => {
-    if(curio != null)
+    if( curio != null )
     {
-      alert("Curio Initialized");
+        if( !isConnected )
+        {
+            curio.connect(() => {
+                                  console.log("Connected");
+                                  setConnect(true);
+                                }
+                         );
+        }
     }
     else
     {
@@ -29,8 +37,15 @@ const App = () => {
     }
     return;
   }
-  const onButtonClick1 = () => {
-    alert("Hello World");
+   /*----------------------------------------------------------------------------------------------------------------*/
+  const disconnectFromRobot = () => {
+    if( curio && isConnected )
+    {
+      curio.disconnect(() => {
+                              console.log("Disconnected");
+                            }
+                      );
+    }
     return;
   }
   /*----------------------------------------------------------------------------------------------------------------*/
@@ -45,6 +60,11 @@ const App = () => {
           </center>
           <div>
               <span>Step 1 : </span><input type="button" onClick={connectToRobot} value="Connect to Robot"/>
+              <span>Step 2 : </span><input type="button" onClick={disconnectFromRobot} value="Disconnect from Robot"/>
+              <span>Step 3 : </span><input type="button" onClick={connectToRobot} value="Forward"/>
+              <span>Step 4 : </span><input type="button" onClick={connectToRobot} value="Backward"/>
+              <span>Step 5 : </span><input type="button" onClick={connectToRobot} value="Turn Left"/>
+              <span>Step 6 : </span><input type="button" onClick={connectToRobot} value="Turn Right"/>
           </div>
         </React.StrictMode>
     </>
