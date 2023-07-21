@@ -10,6 +10,38 @@ const App = () => {
   const [isConnected , setConnect]  = useState(false);
   const runOnce                     = useRef(true);
   /*----------------------------------------------------------------------------------------------------------------*/
+   
+  const detectKeyPressed = (e) => {
+    if( e.key === 'w' || e.key === 'W' )
+    {
+      moveForward();
+      console.log('forward');
+    }
+    if( e.key === 's' || e.key === 'S' )
+    {
+      moveBackward();
+      console.log('backward');
+    }
+    if( e.key === 'a' || e.key === 'A' )
+    {
+      turnLeft();
+      console.log('turning left');
+    }
+    if( e.key === 'd' || e.key === 'D' )
+    {
+      turnRight();
+      console.log('turning right');
+    }
+}
+/*----------------------------------------------------------------------------------------------------------------*/
+const detectKeyRelease = (e) => {
+  if( curio && isConnected )
+  {
+    curio.stop();
+    console.log('Stop');
+  }
+}
+/*----------------------------------------------------------------------------------------------------------------*/
   useEffect(() => {
     if (runOnce.current) {
       runOnce.current = false;
@@ -20,41 +52,7 @@ const App = () => {
     }
   }, [runOnce]);
   /*----------------------------------------------------------------------------------------------------------------*/
-  
-  const detectKeyPressed = (e) => {
-    if( curio && isConnected )
-    {
-      if( e.key === 'w' || e.key === 'W' )
-      {
-        curio.moveForward();
-        console.log('Forward');
-      }
-      if( e.key === 's' || e.key === 'S' )
-      {
-        curio.moveBackward();
-        console.log('Backward');
-      }
-      if( e.key === 'a' || e.key === 'A' )
-      {
-        curio.turnLeft();
-        console.log('Turn Left');
-      }
-      if( e.key === 'd' || e.key === 'D' )
-      {
-        curio.turnRight();
-        console.log('Turn Right');
-      }
-    }
-  }
-  /*----------------------------------------------------------------------------------------------------------------*/
-  const detectKeyRelease = (e) => {
-    if( curio && isConnected )
-    {
-      curio.stop();
-      console.log('Stop');
-    }
-  }
-  /*----------------------------------------------------------------------------------------------------------------*/
+ 
   const connectToRobot = () => {
     if( curio != null )
     {
@@ -89,7 +87,7 @@ const App = () => {
   const moveForward = () =>{
     if( curio && isConnected )
     {
-      curio.moveForward();
+      curio.forward();
     }
     return;
   }
@@ -97,7 +95,7 @@ const App = () => {
   const moveBackward = () =>{
     if( curio && isConnected )
     {
-      curio.moveBackward();
+      curio.backward();
     }
     return;
   }
