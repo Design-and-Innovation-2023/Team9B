@@ -42,9 +42,42 @@ const App = () => {
     if( curio && isConnected )
     {
       curio.disconnect(() => {
-                              console.log("Disconnected");
-                            }
+                                console.log("Disconnected");
+                                setConnect(false);
+                             }
                       );
+    }
+    return;
+  }
+  /*----------------------------------------------------------------------------------------------------------------*/
+  const moveForward = () =>{
+    if( curio && isConnected )
+    {
+      curio.moveForward();
+    }
+    return;
+  }
+  /*----------------------------------------------------------------------------------------------------------------*/
+  const moveBackward = () =>{
+    if( curio && isConnected )
+    {
+      curio.moveBackward();
+    }
+    return;
+  }
+  /*----------------------------------------------------------------------------------------------------------------*/
+  const turnLeft = () =>{
+    if( curio && isConnected )
+    {
+      curio.turnLeft();
+    }
+    return;
+  }
+  /*----------------------------------------------------------------------------------------------------------------*/
+  const turnRight = () =>{
+    if( curio && isConnected )
+    {
+      curio.turnRight();
     }
     return;
   }
@@ -59,12 +92,12 @@ const App = () => {
               </div>
           </center>
           <div>
-              <span>Step 1 : </span><input type="button" onClick={connectToRobot} value="Connect to Robot"/>
-              <span>Step 2 : </span><input type="button" onClick={disconnectFromRobot} value="Disconnect from Robot"/>
-              <span>Step 3 : </span><input type="button" onClick={connectToRobot} value="Forward"/>
-              <span>Step 4 : </span><input type="button" onClick={connectToRobot} value="Backward"/>
-              <span>Step 5 : </span><input type="button" onClick={connectToRobot} value="Turn Left"/>
-              <span>Step 6 : </span><input type="button" onClick={connectToRobot} value="Turn Right"/>
+              <span>Step 1 : </span><input type="button" onClick={connectToRobot}       value="Connect to Robot"/><br/>
+              <span>Step 2 : </span><input type="button" onClick={disconnectFromRobot}  value="Disconnect from Robot"/><br/>
+              <span>Step 3 : </span><input type="button" onClick={moveForward}          value="Forward"/><br/>
+              <span>Step 4 : </span><input type="button" onClick={moveBackward}         value="Backward"/><br/>
+              <span>Step 5 : </span><input type="button" onClick={turnLeft}             value="Turn Left"/><br/>
+              <span>Step 6 : </span><input type="button" onClick={turnRight}            value="Turn Right"/><br/>
           </div>
         </React.StrictMode>
     </>
