@@ -10,14 +10,46 @@ const App = () => {
   const [isConnected , setConnect]  = useState(false);
   const runOnce                     = useRef(true);
   /*----------------------------------------------------------------------------------------------------------------*/
-
   useEffect(() => {
     if (runOnce.current) {
       runOnce.current = false;
       setGreeting("Welcome to Team 9B Curio project for Summer Widening 2023!");
       setCurio( new Curio() );
+      document.addEventListener('keydown' , detectKeyPressed , true )
+      document.addEventListener('keyup'   , detectKeyRelease , true )
     }
   }, [runOnce]);
+  /*----------------------------------------------------------------------------------------------------------------*/
+  
+  const detectKeyPressed = (e) => {
+    // if( curio && isConnected )
+    // {
+      if( e.key === 'w' || e.key === 'W' )
+      {
+        //curio.moveForward();
+        console.log('Forward');
+      }
+      if( e.key === 's' || e.key === 'S' )
+      {
+        //curio.moveBackward();
+        console.log('Backward');
+      }
+      if( e.key === 'a' || e.key === 'A' )
+      {
+        //curio.turnLeft();
+        console.log('Turn Left');
+      }
+      if( e.key === 'd' || e.key === 'D' )
+      {
+        //curio.turnRight();
+        console.log('Turn Right');
+      }
+    // }
+  }
+  /*----------------------------------------------------------------------------------------------------------------*/
+  const detectKeyRelease = (e) => {
+    console.log('Stop');
+  }
   /*----------------------------------------------------------------------------------------------------------------*/
   const connectToRobot = () => {
     if( curio != null )
@@ -82,7 +114,14 @@ const App = () => {
     return;
   }
   /*----------------------------------------------------------------------------------------------------------------*/
-
+  const stop = () =>{
+    if( curio && isConnected )
+    {
+      curio.stop();
+    }
+    return;
+  }
+  /*----------------------------------------------------------------------------------------------------------------*/
   return (
     <>
         <React.StrictMode>
@@ -98,6 +137,7 @@ const App = () => {
               <span>Step 4 : </span><input type="button" onClick={moveBackward}         value="Backward"/><br/>
               <span>Step 5 : </span><input type="button" onClick={turnLeft}             value="Turn Left"/><br/>
               <span>Step 6 : </span><input type="button" onClick={turnRight}            value="Turn Right"/><br/>
+              <span>Step 7 : </span><input type="button" onClick={stop}                 value="Stop"/><br/>
           </div>
         </React.StrictMode>
     </>
