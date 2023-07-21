@@ -35,11 +35,8 @@ const App = () => {
 }
 /*----------------------------------------------------------------------------------------------------------------*/
 const detectKeyRelease = (e) => {
-  if( curio && curio.getConnection() )
-  {
-    curio.stop();
+    stop();
     console.log('Stop');
-  }
 }
 /*----------------------------------------------------------------------------------------------------------------*/
   useEffect(() => {
@@ -55,7 +52,7 @@ const detectKeyRelease = (e) => {
   const connectToRobot = () => {
     if( curio != null )
     {
-        if( !isConnected )
+        if( !curio.getConnection() )
         {
             curio.connect(() => {
                                   console.log("Connected");
@@ -75,7 +72,7 @@ const detectKeyRelease = (e) => {
   }
    /*----------------------------------------------------------------------------------------------------------------*/
   const disconnectFromRobot = () => {
-    if( curio && isConnected )
+    if( curio && curio.getConnection() )
     {
       curio.disconnect(() => {
                                 console.log("Disconnected");
@@ -138,17 +135,17 @@ const detectKeyRelease = (e) => {
             <>
               {
                 isConnected ? 
-                (<span>Step 1 : <input type="button" onClick={disconnectFromRobot}  value="Disconnect from Robot"/></span>) :
-                (<span>Step 1 : <input type="button" onClick={connectToRobot}       value="Connect to Robot"/></span>     )
+                (<span>Step 1 : <input type="button" onClick={disconnectFromRobot} value="Disconnect from Robot"/></span>) :
+                (<span>Step 1 : <input type="button" onClick={connectToRobot}      value="Connect to Robot"/></span>     )
               }
               <br/><br/>
             </>
             <div>
-              <span>Step 2 : </span><input type="button" onClick={moveForward}          value="Forward"/><br/><br/>
-              <span>Step 3 : </span><input type="button" onClick={moveBackward}         value="Backward"/><br/><br/>
-              <span>Step 4 : </span><input type="button" onClick={turnLeft}             value="Turn Left"/><br/><br/>
-              <span>Step 5 : </span><input type="button" onClick={turnRight}            value="Turn Right"/><br/><br/>
-              <span>Step 6 : </span><input type="button" onClick={stop}                 value="Stop"/><br/><br/>
+              <span>Step 2 : </span><input type="button" onClick={moveForward}     value="Forward"/><br/><br/>
+              <span>Step 3 : </span><input type="button" onClick={moveBackward}    value="Backward"/><br/><br/>
+              <span>Step 4 : </span><input type="button" onClick={turnLeft}        value="Turn Left"/><br/><br/>
+              <span>Step 5 : </span><input type="button" onClick={turnRight}       value="Turn Right"/><br/><br/>
+              <span>Step 6 : </span><input type="button" onClick={stop}            value="Stop"/><br/><br/>
             </div>
         </React.StrictMode>
     </>
