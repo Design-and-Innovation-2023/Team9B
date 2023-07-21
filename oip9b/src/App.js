@@ -22,33 +22,37 @@ const App = () => {
   /*----------------------------------------------------------------------------------------------------------------*/
   
   const detectKeyPressed = (e) => {
-    // if( curio && isConnected )
-    // {
+    if( curio && isConnected )
+    {
       if( e.key === 'w' || e.key === 'W' )
       {
-        //curio.moveForward();
+        curio.moveForward();
         console.log('Forward');
       }
       if( e.key === 's' || e.key === 'S' )
       {
-        //curio.moveBackward();
+        curio.moveBackward();
         console.log('Backward');
       }
       if( e.key === 'a' || e.key === 'A' )
       {
-        //curio.turnLeft();
+        curio.turnLeft();
         console.log('Turn Left');
       }
       if( e.key === 'd' || e.key === 'D' )
       {
-        //curio.turnRight();
+        curio.turnRight();
         console.log('Turn Right');
       }
-    // }
+    }
   }
   /*----------------------------------------------------------------------------------------------------------------*/
   const detectKeyRelease = (e) => {
-    console.log('Stop');
+    if( curio && isConnected )
+    {
+      curio.stop();
+      console.log('Stop');
+    }
   }
   /*----------------------------------------------------------------------------------------------------------------*/
   const connectToRobot = () => {
@@ -130,15 +134,21 @@ const App = () => {
                   <h1>{greeting}</h1>
               </div>
           </center>
-          <div>
-              <span>Step 1 : </span><input type="button" onClick={connectToRobot}       value="Connect to Robot"/><br/>
-              <span>Step 2 : </span><input type="button" onClick={disconnectFromRobot}  value="Disconnect from Robot"/><br/>
-              <span>Step 3 : </span><input type="button" onClick={moveForward}          value="Forward"/><br/>
-              <span>Step 4 : </span><input type="button" onClick={moveBackward}         value="Backward"/><br/>
-              <span>Step 5 : </span><input type="button" onClick={turnLeft}             value="Turn Left"/><br/>
-              <span>Step 6 : </span><input type="button" onClick={turnRight}            value="Turn Right"/><br/>
-              <span>Step 7 : </span><input type="button" onClick={stop}                 value="Stop"/><br/>
-          </div>
+            <>
+              {
+                isConnected ? 
+                (<span>Step 1 : <input type="button" onClick={disconnectFromRobot}  value="Disconnect from Robot"/></span>) :
+                (<span>Step 1 : <input type="button" onClick={connectToRobot}       value="Connect to Robot"/></span>     )
+              }
+              <br/><br/>
+            </>
+            <div>
+              <span>Step 2 : </span><input type="button" onClick={moveForward}          value="Forward"/><br/><br/>
+              <span>Step 3 : </span><input type="button" onClick={moveBackward}         value="Backward"/><br/><br/>
+              <span>Step 4 : </span><input type="button" onClick={turnLeft}             value="Turn Left"/><br/><br/>
+              <span>Step 5 : </span><input type="button" onClick={turnRight}            value="Turn Right"/><br/><br/>
+              <span>Step 6 : </span><input type="button" onClick={stop}                 value="Stop"/><br/><br/>
+            </div>
         </React.StrictMode>
     </>
   );
