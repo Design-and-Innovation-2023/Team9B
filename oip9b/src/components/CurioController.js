@@ -123,22 +123,69 @@ const detectKeyRelease = (e) => {
 
     return(
             <>
+                <table border="black">
+                  <thead>
+                    <tr>
+                      <th>Steps</th>
+                      <th>Mouse Click</th>
+                      <th>Keyboard</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Step 1 :</td>
+                      <td>
+                            {
+                                isConnected ? 
+                                (<input type="button" onClick={disconnectFromRobot} value="Disconnect from Robot"/>) :
+                                (<input type="button" onClick={connectToRobot}      value="Connect to Robot"/>     )
+                            }
+                      </td>
+                      <td>Escape</td>
+                    </tr>
 
-                <>
-                    {
-                        isConnected ? 
-                        (<span>Step 1 : <input type="button" onClick={disconnectFromRobot} value="Disconnect from Robot"/></span>) :
-                        (<span>Step 1 : <input type="button" onClick={connectToRobot}      value="Connect to Robot"/></span>     )
-                    }
-                    <br/><br/>
-                </>
-                <>
-                        <span>Step 2 : </span><input type="button" onClick={moveForward}   value="Forward"/><br/><br/>
-                        <span>Step 3 : </span><input type="button" onClick={moveBackward}  value="Backward"/><br/><br/>
-                        <span>Step 4 : </span><input type="button" onClick={turnLeft}      value="Turn Left"/><br/><br/>
-                        <span>Step 5 : </span><input type="button" onClick={turnRight}     value="Turn Right"/><br/><br/>
-                        <span>Step 6 : </span><input type="button" onClick={stop}          value="Stop"/><br/><br/>
-                </>
+                    <tr>
+                      <td>Step 2 :</td>
+                      <td>
+                        <input type="button" onClick={moveForward}   value="Forward"/>
+                      </td>
+                      <td>W</td>
+                    </tr>
+
+                    <tr>
+                      <td>Step 3 :</td>
+                      <td>
+                        <input type="button" onClick={moveBackward}  value="Backward"/>
+                      </td>
+                      <td>S</td>
+                    </tr>
+
+                    <tr>
+                      <td>Step 4 :</td>
+                      <td>
+                        <input type="button" onClick={turnLeft}      value="Turn Left"/>
+                      </td>
+                      <td>A</td>
+                    </tr>
+
+                    <tr>
+                      <td>Step 5 :</td>
+                      <td>
+                        <input type="button" onClick={turnRight}     value="Turn Right"/>
+                      </td>
+                      <td>D</td>
+                    </tr>
+
+                    <tr>
+                      <td>Step 6 :</td>
+                      <td>
+                        <input type="button" onClick={stop}          value="Stop"/>
+                      </td>
+                      <td>Space</td>
+                    </tr>
+
+                  </tbody>
+                </table>
             </>
           );
 };

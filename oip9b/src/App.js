@@ -22,23 +22,24 @@ const App = () => {
     y = np.array([3,2,1,0,1,2,3])
     fig, ax = plt.subplots()
     plt.scatter( x , y )
-    display(fig, target="matplotlibplot")
+    display(fig)
     print("Hello World")
   `;
   /*----------------------------------------------------------------------------------------------------------------*/
     return (
-    <>
-        <React.StrictMode><center><div><h1>{greeting}</h1></div></center>
-            <CurioController />
-            <Python codes={python_codes} />
-        </React.StrictMode>       
-    </>
+      <>
+        <center><div><h1>{greeting}</h1></div></center>
+        <CurioController />
+        <Python codes={python_codes} />
+      </>
   );
   /*----------------------------------------------------------------------------------------------------------------*/
 }
 App.getLayout = (page) => (
   <>
-      {page}
+      <React.StrictMode>
+          {page}
+      </React.StrictMode> 
   </>
 );
 export default App;
