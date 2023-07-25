@@ -23,14 +23,14 @@ export default function Python( {codes} ) {
                     </thead>
                     <tbody>
                         <tr>
-                            <td>
+                            <td id="sample_container">
                                     <div id="sample-codes">
                                         <textarea id="python-example" width="auto" height="auto">
                                         {codes}
                                         </textarea>
                                     </div>
                             </td>
-                            <td>
+                            <td id="code_container">
                                     <div id="python-container">
                                         <PyScriptProvider>
                                             <py-config>packages = ["numpy","pandas","matplotlib"]</py-config>
