@@ -39,5 +39,18 @@ export class Curio extends DeviceController {
 		this.UART.write(`go(0, 0)\n`);
 	}
 
+	customCommand(text_cmd : String)
+	{
+		try
+		{
+			let proper_cmd = String(text_cmd) + "\n";
+			this.UART.write( proper_cmd );
+		}
+		catch(err)
+		{
+			console.log(err);
+		}
+	}
+
 };
 
