@@ -1,0 +1,22 @@
+name: Node.js CI
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build_Client:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: oip9b
+    strategy:
+      matrix:
+        node-version: [16.x, 17.x, 18.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    steps:
+    - uses: actions/checkout@v3
+    - run: yarn install
+    - run: yarn build
+
