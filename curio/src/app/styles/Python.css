@@ -1,0 +1,39 @@
+#sample_container {
+    vertical-align: top;
+}
+
+#code_container {
+    width: 100%;
+    height: 100%;
+    vertical-align: top;
+}
+
+#sample-codes {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+#python-example {
+    width: 220px;
+    height: 300px;
+}
+
+py-terminal {
+    background-color:blueviolet ;
+}
+
+#py-terminal {
+    background-color:blueviolet ;
+}
+
+#output {
+    background-color: black;
+}
+
+#output img {
+    width: 100%;
+    height: 100%;
+    max-width: 500px;
+    max-height: 500px;
+}
