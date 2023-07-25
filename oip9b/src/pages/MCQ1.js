@@ -4,16 +4,14 @@ const MCQ1 = () =>
 {
     return(
         <>
-            <div>task : Help the Curio Robot reach point B</div>
+            <center><h2>Task : Help the Curio Robot reach point B</h2></center>
+            <span>Hint : </span><br/>
+            <span>1 : Create a function that can move the robot</span><br/>
+            <span>2 : Call the function multiple times, using different arguments to help the robot reach point B</span><br/>
+            <hr />
             <Prototype1 />
         </>
     )
 }
-
-MCQ1.getLayout = (page) => (
-    <div>
-        {page} 
-    </div>
-  );
 
 export default MCQ1;

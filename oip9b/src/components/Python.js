@@ -15,6 +15,7 @@ export default function Python( {codes} ) {
                     <thead>
                         <tr>
                             <th>
+                                <span>Hint</span>
                             </th>
                             <th>
                                     <span>Copy the following Python codes and paste it into the Python console and click on the play button to execute.</span>
