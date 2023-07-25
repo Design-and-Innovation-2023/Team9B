@@ -1,5 +1,6 @@
 import CurioController                        from './components/CurioController';
 import Python                                 from './components/Python';
+import Example                                from './components/Example';
 import React, { useRef, useEffect, useState } from "react";
 const App = () => {
 
@@ -29,6 +30,7 @@ const App = () => {
     return (
       <>
         <center><div><h1>{greeting}</h1></div></center>
+        <Example />
         <CurioController />
         <Python codes={python_codes} />
       </>
@@ -43,3 +45,5 @@ App.getLayout = (page) => (
   </>
 );
 export default App;
+
+
