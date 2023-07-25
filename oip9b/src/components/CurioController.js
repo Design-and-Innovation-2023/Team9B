@@ -122,7 +122,7 @@ const detectKeyRelease = (e) => {
   /*----------------------------------------------------------------------------------------------------------------*/
 
     return(
-            <>
+            <div>
                 <table border="black">
                   <thead>
                     <tr>
@@ -186,6 +186,6 @@ const detectKeyRelease = (e) => {
 
                   </tbody>
                 </table>
-            </>
+            </div>
           );
 };

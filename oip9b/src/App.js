@@ -1,5 +1,7 @@
+
 import CurioController                        from './components/CurioController';
 import React, { useRef, useEffect, useState } from "react";
+
 const App = () => {
 
   /*----------------------------------------------------------------------------------------------------------------*/
@@ -16,18 +18,14 @@ const App = () => {
 
   /*----------------------------------------------------------------------------------------------------------------*/
     return (
-      <>
-        <center><div><h1>{greeting}</h1></div></center>
-        <CurioController />
-      </>
+      <div>
+          <center><div><h1>{greeting}</h1></div></center>
+          <CurioController />
+      </div>
   );
   /*----------------------------------------------------------------------------------------------------------------*/
 }
-App.getLayout = (page) => (
-  <>
-      {page}
-  </>
-);
+
 export default App;
 
 
