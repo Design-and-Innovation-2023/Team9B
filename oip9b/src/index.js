@@ -11,12 +11,16 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
       <BrowserRouter>
-          <Banner />
-          <Routes>
-                <Route path="/"               element={<App/> }       />
-                <Route path="/mcq1"       element={<MCQ1/>}       />
-                <Route path="/openended1" element={<OpenEnded1/>} />
-          </Routes>
+                      <div>
+                                <Banner />
+                                <div>
+                                          <Routes>
+                                                    <Route path="/"            element={<App/> }       />
+                                                    <Route path="/mcq1/"       element={<MCQ1/>}       />
+                                                    <Route path="/openended1/" element={<OpenEnded1/>} />
+                                          </Routes>
+                                </div>
+                      </div>
       </BrowserRouter>
   </React.StrictMode>
 );

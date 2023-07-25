@@ -11,9 +11,9 @@ const MCQ1 = () =>
 }
 
 MCQ1.getLayout = (page) => (
-    <>
+    <div>
         {page} 
-    </>
+    </div>
   );
 
 export default MCQ1;
