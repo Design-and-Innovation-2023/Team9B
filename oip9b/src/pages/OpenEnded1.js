@@ -13,10 +13,18 @@ export default function OpenEnded1( {codes} ) {
 import matplotlib.pyplot as plt
 x = np.array([2,3,4,5,6,7,8])
 y = np.array([3,2,1,0,1,2,3])
-fig, ax = plt.subplots()
+fig1, ax1 = plt.subplots()
 plt.scatter( x , y )
-display(fig)
-print("Hello World")`;
+plt.title("v shape")
+display(fig1 , target="output")
+print("Hello World")
+
+x = np.array([2,3,4,5,6,7,8])
+y = np.array([0,1,2,3,2,1,0])
+fig2, ax2 = plt.subplots()
+plt.scatter( x , y )
+plt.title("^ shape")
+display(fig2 , target="output")`;
     /*----------------------------------------------------------------------------------------------------------------*/
     useEffect(() => {
       if (runOnce.current) {
