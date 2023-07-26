@@ -2,7 +2,6 @@
 
 import React, { useRef, useEffect } from "react";
 import Python                       from '../components/Python';
-import { global_curio }             from "../components/Curio";
 
 // https://github.com/Py4Js/pyscript-react
 // https://pyscript.net/examples/matplotlib.html
@@ -10,8 +9,9 @@ import { global_curio }             from "../components/Curio";
 export default function OpenEnded1( {codes} ) {
 
     /*----------------------------------------------------------------------------------------------------------------*/
-    const runOnce = useRef(true);
-    const python_codes = 
+
+    const instructions = `Copy the following Python codes and paste it into the Python console and click on the play button to execute.`;
+    const python_hints = 
 `import numpy as np
 import matplotlib.pyplot as plt
 
@@ -30,8 +30,13 @@ plt.scatter( x , y )
 plt.title("^ shape")
 display(fig2 , target="output")
 
-from js import toggle_Connect
-toggle_Connect.click()`;
+# from js import toggleConnect
+# toggleConnect.click()
+import time
+from js import forward,backward,turnLeft,turnRight,stop,movement1
+movement1.click()`;
+
+    const runOnce = useRef(true);
     /*----------------------------------------------------------------------------------------------------------------*/
     useEffect(() => {
       if (runOnce.current) {
@@ -42,8 +47,7 @@ toggle_Connect.click()`;
     return(
             <div>
               {
-                runOnce.current && <Python object={global_curio.connect} codes={python_codes} />
-                // runOnce.current && <Python />
+                runOnce.current && <Python instructions={instructions} hints={python_hints} />
               }
             </div>
           );

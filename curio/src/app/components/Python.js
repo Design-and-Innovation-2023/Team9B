@@ -1,75 +1,183 @@
-import                           '../styles/Python.css'
-import { global_curio }     from './Curio';
-import { PyScriptProvider } from 'pyscript-react' 
+import                                   '../styles/Python.css'
+import { global_curio }             from './Curio';
+import { PyScriptProvider }         from 'pyscript-react' 
+import React, { useRef , useEffect } from "react";
 
 // https://github.com/Py4Js/pyscript-react
 // https://pyscript.net/examples/matplotlib.html
 
 //export default function Python() {
-export default function Python( { codes } ) {
+export default function Python( { instructions , hints } ) {
 
-    function checkConnection()
-    {
-        return global_curio.getConnection() 
-    }
-
-    function toggle_Connect() {
-
-        if( ! global_curio.getConnection() )
+    /*----------------------------------------------------------------------------------------------------------------*/
+    async function toggleConnect() {
+        const btn = document.getElementById('toggleConnect')
+        if( global_curio != null )
         {
-            global_curio.connect( ()=>{
-                global_curio.setConnection(true)
-            })
+            if( !global_curio.getConnection() )
+            {
+                await global_curio.connect( ()=>{
+                    global_curio.setConnection(true);
+                    btn.value = "Disconnect"
+                })
+                return;
+            }
+            else
+            {
+                await global_curio.disconnect( ()=>{
+                    global_curio.setConnection(false);
+                    btn.value = "Connect"
+                })
+                return;
+            }
         }
         return;
     }
 
+    async function forward() {
+        if(  global_curio && global_curio.getConnection() )
+        {
+            global_curio.forward();
+        }
+        return;
+    }
+
+    async function backward() {
+        if(  global_curio && global_curio.getConnection() )
+        {
+            global_curio.backward();
+        }
+        return;
+    }
+
+    async function turnLeft() {
+        if(  global_curio && global_curio.getConnection() )
+        {
+            global_curio.turnLeft();
+        }
+        return;
+    }
+
+    async function turnRight() {
+        if(  global_curio && global_curio.getConnection() )
+        {
+            global_curio.turnRight();
+        }
+        return;
+    }
+
+    async function stop() {
+        if(  global_curio && global_curio.getConnection() )
+        {
+            global_curio.stop();
+        }
+        return;
+    }
+
+    async function movement1() {
+        forward();
+        setTimeout( backward  , 1800 );
+        setTimeout( turnLeft  , 3600 );
+        setTimeout( turnRight , 5400 );
+    }
+    /*----------------------------------------------------------------------------------------------------------------*/
+    const runOnce = useRef(true);
+    useEffect(() => {
+
+            if (runOnce.current) {
+                runOnce.current = false;
+
+                const btn = document.getElementById('toggleConnect')
+                if( global_curio && global_curio.getConnection() )
+                {
+                    btn.value = "Disconnect"
+                }
+                else
+                {
+                    btn.value = "Connect"
+                }
+            }
+
+      }, [runOnce] );
+    /*----------------------------------------------------------------------------------------------------------------*/
     return(
             <div>
-                <input type="button" id="toggle_Connect" onClick={toggle_Connect} value="Connect" />
-                <table>
-                    <thead>
-                        <tr>
-                            <th>
-                                <span>Hint</span>
-                            </th>
-                            <th>
-                                    <span>Copy the following Python codes and paste it into the Python console and click on the play button to execute.</span>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td id="sample_container">
-                                    <div id="sample-codes">
-                                        <textarea id="python-example" width="auto" height="auto" defaultValue={codes} >
-                                        </textarea>
-                                    </div>
-                            </td>
-                            <td id="code_container">
-                                    <div id="python-container">
-                                        <span>Input:</span><br/>
-                                        <script type="text/javascript">
-                                            toggleConnect = document.getElementById(`toggle_Connect`)
-                                        </script>
-                                        <PyScriptProvider>
-                                            <py-config>packages = ["numpy","pandas","matplotlib","scikit-learn"]</py-config>
-                                            {/* <py-script>{codes}</py-script> */}
-                                            <py-repl />
-                                        </PyScriptProvider>
-                                        <hr />
-                                        <span>Output:</span><br/>
-                                        <div id="output-container">
-                                            <div id="py-terminal-div">
-                                                <py-terminal id="py-terminal" output="output" />
+                {
+                    runOnce.current && 
+                    <div>
+                        <input type="button" id="toggleConnect" onClick={toggleConnect} value="Connect"    />
+                        <input type="button" id="forward"       onClick={forward}       value="Forward"    />
+                        <input type="button" id="backward"      onClick={backward}      value="Backward"   />
+                        <input type="button" id="turnLeft"      onClick={turnLeft}      value="Turn Left"  />
+                        <input type="button" id="turnRight"     onClick={turnRight}     value="Turn Right" />
+                        <input type="button" id="stop"          onClick={stop}          value="Stop"       />
+                        <input type="button" id="movement1"     onClick={movement1}     value="Movement 1" />
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <span>Hints</span>
+                                    </th>
+                                    <th>
+                                            <span>{instructions}</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td id="sample_container">
+                                            <div id="sample-codes">
+                                                <textarea id="python-example" width="auto" height="auto" defaultValue={hints} autoCorrect="off" autoCapitalize="off" spellCheck="false" >
+                                                </textarea>
                                             </div>
-                                            <div id="output" name="output" />
-                                        </div>
-                                    </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                                    </td>
+                                    <td id="code_container">
+                                            <div id="python-container">
+                                                <span>Input:</span><br/>
+                                                <script type="text/javascript">
+                                                    toggleConnect = document.getElementById(`toggleConnect`)
+                                                </script>
+                                                <script type="text/javascript">
+                                                    forward = document.getElementById(`forward`)
+                                                </script>
+                                                <script type="text/javascript">
+                                                    backward = document.getElementById(`backward`)
+                                                </script>
+                                                <script type="text/javascript">
+                                                    turnLeft = document.getElementById(`turnLeft`)
+                                                </script>
+                                                <script type="text/javascript">
+                                                    turnRight = document.getElementById(`turnRight`)
+                                                </script>
+                                                <script type="text/javascript">
+                                                    stop = document.getElementById(`stop`)
+                                                </script>
+                                                <script type="text/javascript">
+                                                    movement1 = document.getElementById(`movement1`)
+                                                </script>
+
+                                                <PyScriptProvider>
+                                                    <py-config>packages = ["numpy","pandas","matplotlib","scikit-learn","asyncio"]</py-config>
+                                                    {/* <py-script>{codes}</py-script> */}
+                                                    <py-repl />
+                                                </PyScriptProvider>
+                                                <hr />
+                                                <span>Output:</span><br/>
+                                                <div id="output-container">
+                                                    <div id="py-terminal-div">
+                                                        <py-terminal output="output" />
+                                                    </div>
+                                                    <div id="output" name="output" />
+                                                </div>
+                                            </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                }
             </div>
+
+            
           );
 };
