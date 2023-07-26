@@ -54,3 +54,5 @@ export class Curio extends DeviceController {
 
 };
 
+export const global_curio = new Curio();
+

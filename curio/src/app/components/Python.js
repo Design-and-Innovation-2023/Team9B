@@ -38,10 +38,12 @@ export default function Python( {codes} ) {
                                             {/* <py-script>{codes}</py-script> */}
                                             <py-repl />
                                         </PyScriptProvider>
-                                        <div id="py-terminal-div">
-                                            <py-terminal id="py-terminal" output="output" />
+                                        <div id="output-container">
+                                            <div id="py-terminal-div">
+                                                <py-terminal id="py-terminal" output="output" />
+                                            </div>
+                                            <div id="output" name="output" />
                                         </div>
-                                        <div id="output" name="output" />
                                     </div>
                             </td>
                         </tr>

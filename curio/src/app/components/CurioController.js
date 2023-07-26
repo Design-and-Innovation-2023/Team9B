@@ -1,4 +1,4 @@
-import { Curio }                              from './Curio';
+import { global_curio , Curio }               from './Curio';
 import React, { useRef, useEffect, useState } from "react";
 
 export default function CurioController() {
@@ -40,7 +40,8 @@ const detectKeyRelease = (e) => {
   useEffect(() => {
     if (runOnce.current) {
       runOnce.current = false;
-      setCurio( new Curio() );
+      // setCurio( new Curio() );
+      setCurio( global_curio );
     }
   }, [runOnce]);
   /*----------------------------------------------------------------------------------------------------------------*/
