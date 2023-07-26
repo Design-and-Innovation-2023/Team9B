@@ -4,7 +4,6 @@ import { PyScriptProvider } from 'pyscript-react'
 // https://github.com/Py4Js/pyscript-react
 // https://pyscript.net/examples/matplotlib.html
 
-
 //export default function Python() {
 export default function Python( {codes} ) {
 
@@ -33,11 +32,14 @@ export default function Python( {codes} ) {
                             </td>
                             <td id="code_container">
                                     <div id="python-container">
+                                        <span>Input:</span><br/>
                                         <PyScriptProvider>
-                                            <py-config>packages = ["numpy","pandas","matplotlib"]</py-config>
+                                            <py-config>packages = ["numpy","pandas","matplotlib","scikit-learn"]</py-config>
                                             {/* <py-script>{codes}</py-script> */}
                                             <py-repl />
                                         </PyScriptProvider>
+                                        <hr />
+                                        <span>Output:</span><br/>
                                         <div id="output-container">
                                             <div id="py-terminal-div">
                                                 <py-terminal id="py-terminal" output="output" />
