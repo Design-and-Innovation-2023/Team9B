@@ -25,8 +25,7 @@ export default function Python( {codes} ) {
                         <tr>
                             <td id="sample_container">
                                     <div id="sample-codes">
-                                        <textarea id="python-example" width="auto" height="auto">
-                                        {codes}
+                                        <textarea id="python-example" width="auto" height="auto" defaultValue={codes} >
                                         </textarea>
                                     </div>
                             </td>
