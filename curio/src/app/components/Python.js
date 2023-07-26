@@ -1,21 +1,32 @@
 import                           '../styles/Python.css'
-import { PyScriptProvider } from 'pyscript-react' 
 import { global_curio }     from './Curio';
+import { PyScriptProvider } from 'pyscript-react' 
 
 // https://github.com/Py4Js/pyscript-react
 // https://pyscript.net/examples/matplotlib.html
 
 //export default function Python() {
-export default function Python( { object , codes } ) {
+export default function Python( { codes } ) {
 
-    function testClick() {
-        global_curio.connect()
-        console.log("Hello World")
+    function checkConnection()
+    {
+        return global_curio.getConnection() 
+    }
+
+    function toggle_Connect() {
+
+        if( ! global_curio.getConnection() )
+        {
+            global_curio.connect( ()=>{
+                global_curio.setConnection(true)
+            })
+        }
+        return;
     }
 
     return(
             <div>
-                <input type="button" id="Test" onClick={testClick} value="Test" />
+                <input type="button" id="toggle_Connect" onClick={toggle_Connect} value="Connect" />
                 <table>
                     <thead>
                         <tr>
@@ -39,7 +50,7 @@ export default function Python( { object , codes } ) {
                                     <div id="python-container">
                                         <span>Input:</span><br/>
                                         <script type="text/javascript">
-                                            btn       = document.getElementById(`Test`)
+                                            toggleConnect = document.getElementById(`toggle_Connect`)
                                         </script>
                                         <PyScriptProvider>
                                             <py-config>packages = ["numpy","pandas","matplotlib","scikit-learn"]</py-config>

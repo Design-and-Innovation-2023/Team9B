@@ -14,6 +14,7 @@ export default function OpenEnded1( {codes} ) {
     const python_codes = 
 `import numpy as np
 import matplotlib.pyplot as plt
+
 x = np.array([2,3,4,5,6,7,8])
 y = np.array([3,2,1,0,1,2,3])
 fig1, ax1 = plt.subplots()
@@ -27,7 +28,10 @@ y = np.array([0,1,2,3,2,1,0])
 fig2, ax2 = plt.subplots()
 plt.scatter( x , y )
 plt.title("^ shape")
-display(fig2 , target="output")`;
+display(fig2 , target="output")
+
+from js import toggle_Connect
+toggle_Connect.click()`;
     /*----------------------------------------------------------------------------------------------------------------*/
     useEffect(() => {
       if (runOnce.current) {
