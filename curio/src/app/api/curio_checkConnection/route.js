@@ -1,8 +1,8 @@
+'use client'
+
 import { global_curio , Curio } from '../../components/Curio';
 
-const curio = new Curio();
-
-export async function GET( request )
+export function GET( request )
 {
     if( global_curio.getConnection() )
     {

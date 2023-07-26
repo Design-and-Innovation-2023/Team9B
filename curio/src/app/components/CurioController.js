@@ -4,7 +4,7 @@ import React, { useRef, useEffect, useState } from "react";
 export default function CurioController() {
 
   /*----------------------------------------------------------------------------------------------------------------*/
-  const [curio       , setCurio]    = useState(null);
+  // const [curio       , setCurio]    = useState(null);
   const [isConnected , setConnect]  = useState(false);
   const runOnce                     = useRef(true);
   /*----------------------------------------------------------------------------------------------------------------*/
@@ -41,22 +41,22 @@ const detectKeyRelease = (e) => {
     if (runOnce.current) {
       runOnce.current = false;
       // setCurio( new Curio() );
-      setCurio( global_curio );
+      // setCurio( global_curio );
     }
   }, [runOnce]);
   /*----------------------------------------------------------------------------------------------------------------*/
 
   const connectToRobot = () => {
-    if( curio != null )
+    if( global_curio != null )
     {
-        if( !curio.getConnection() )
+        if( !global_curio.getConnection() )
         {
-            curio.connect(() => {
+          global_curio.connect(() => {
                                   console.log("Connected");
                                   window.addEventListener('keydown' , (e)=> detectKeyPressed(e) )
                                   window.addEventListener('keyup'   , (e)=> detectKeyRelease(e) )
                                   setConnect(true);
-                                  curio.setConnection(true);
+                                  global_curio.setConnection(true);
                                 }
                          );
         }
@@ -69,12 +69,12 @@ const detectKeyRelease = (e) => {
   }
    /*----------------------------------------------------------------------------------------------------------------*/
   const disconnectFromRobot = () => {
-    if( curio && curio.getConnection() )
+    if( global_curio && global_curio.getConnection() )
     {
-      curio.disconnect(() => {
+      global_curio.disconnect(() => {
                                 console.log("Disconnected");
                                 setConnect(false);
-                                curio.setConnection(false);
+                                global_curio.setConnection(false);
                              }
                       );
     }
@@ -82,41 +82,41 @@ const detectKeyRelease = (e) => {
   }
   /*----------------------------------------------------------------------------------------------------------------*/
   const moveForward = () =>{
-    if( curio && curio.getConnection() )
+    if( global_curio && global_curio.getConnection() )
     {
-      curio.forward();
+      global_curio.forward();
     }
     return;
   }
   /*----------------------------------------------------------------------------------------------------------------*/
   const moveBackward = () =>{
-    if( curio && curio.getConnection() )
+    if( global_curio && global_curio.getConnection() )
     {
-      curio.backward();
+      global_curio.backward();
     }
     return;
   }
   /*----------------------------------------------------------------------------------------------------------------*/
   const turnLeft = () =>{
-    if( curio && curio.getConnection() )
+    if( global_curio && global_curio.getConnection() )
     {
-      curio.turnLeft();
+      global_curio.turnLeft();
     }
     return;
   }
   /*----------------------------------------------------------------------------------------------------------------*/
   const turnRight = () =>{
-    if( curio && curio.getConnection() )
+    if( global_curio && global_curio.getConnection() )
     {
-      curio.turnRight();
+      global_curio.turnRight();
     }
     return;
   }
   /*----------------------------------------------------------------------------------------------------------------*/
   const stop = () =>{
-    if( curio && curio.getConnection() )
+    if( global_curio && global_curio.getConnection() )
     {
-      curio.stop();
+      global_curio.stop();
     }
     return;
   }
