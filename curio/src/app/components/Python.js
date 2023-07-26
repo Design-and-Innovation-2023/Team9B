@@ -1,15 +1,21 @@
 import                           '../styles/Python.css'
 import { PyScriptProvider } from 'pyscript-react' 
+import { global_curio }     from './Curio';
 
 // https://github.com/Py4Js/pyscript-react
 // https://pyscript.net/examples/matplotlib.html
 
 //export default function Python() {
-export default function Python( {codes} ) {
+export default function Python( { object , codes } ) {
+
+    function testClick() {
+        global_curio.connect()
+        console.log("Hello World")
+    }
 
     return(
             <div>
-                
+                <input type="button" id="Test" onClick={testClick} value="Test" />
                 <table>
                     <thead>
                         <tr>
@@ -32,6 +38,9 @@ export default function Python( {codes} ) {
                             <td id="code_container">
                                     <div id="python-container">
                                         <span>Input:</span><br/>
+                                        <script type="text/javascript">
+                                            btn       = document.getElementById(`Test`)
+                                        </script>
                                         <PyScriptProvider>
                                             <py-config>packages = ["numpy","pandas","matplotlib","scikit-learn"]</py-config>
                                             {/* <py-script>{codes}</py-script> */}

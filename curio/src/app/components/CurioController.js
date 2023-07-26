@@ -138,8 +138,8 @@ const detectKeyRelease = (e) => {
                       <td>
                             {
                                 isConnected ? 
-                                (<input type="button" onClick={disconnectFromRobot} value="Disconnect from Robot"/>) :
-                                (<input type="button" onClick={connectToRobot}      value="Connect to Robot"/>     )
+                                (<input type="button" id="btn_Disconnect" onClick={disconnectFromRobot} value="Disconnect from Robot"/>) :
+                                (<input type="button" id="btn_Connect"    onClick={connectToRobot}      value="Connect to Robot"/>     )
                             }
                       </td>
                       <td>Escape</td>
@@ -148,7 +148,7 @@ const detectKeyRelease = (e) => {
                     <tr>
                       <td>Step 2 :</td>
                       <td>
-                        <input type="button" onClick={moveForward}   value="Forward"/>
+                        <input type="button" id="btn_forward" onClick={moveForward}   value="Forward"/>
                       </td>
                       <td>W</td>
                     </tr>
@@ -156,7 +156,7 @@ const detectKeyRelease = (e) => {
                     <tr>
                       <td>Step 3 :</td>
                       <td>
-                        <input type="button" onClick={moveBackward}  value="Backward"/>
+                        <input type="button" id="btn_backward" onClick={moveBackward}  value="Backward"/>
                       </td>
                       <td>S</td>
                     </tr>
@@ -164,7 +164,7 @@ const detectKeyRelease = (e) => {
                     <tr>
                       <td>Step 4 :</td>
                       <td>
-                        <input type="button" onClick={turnLeft}      value="Turn Left"/>
+                        <input type="button" id="btn_turnLeft" onClick={turnLeft}      value="Turn Left"/>
                       </td>
                       <td>A</td>
                     </tr>
@@ -172,7 +172,7 @@ const detectKeyRelease = (e) => {
                     <tr>
                       <td>Step 5 :</td>
                       <td>
-                        <input type="button" onClick={turnRight}     value="Turn Right"/>
+                        <input type="button" id="btn_turnRight" onClick={turnRight}     value="Turn Right"/>
                       </td>
                       <td>D</td>
                     </tr>
@@ -180,7 +180,7 @@ const detectKeyRelease = (e) => {
                     <tr>
                       <td>Step 6 :</td>
                       <td>
-                        <input type="button" onClick={stop}          value="Stop"/>
+                        <input type="button" id="btn_Stop"      onClick={stop}          value="Stop"/>
                       </td>
                       <td>Space</td>
                     </tr>

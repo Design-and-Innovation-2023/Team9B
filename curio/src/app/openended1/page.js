@@ -1,7 +1,8 @@
 'use client'
 
 import React, { useRef, useEffect } from "react";
-import Python from '../components/Python';
+import Python                       from '../components/Python';
+import { global_curio }             from "../components/Curio";
 
 // https://github.com/Py4Js/pyscript-react
 // https://pyscript.net/examples/matplotlib.html
@@ -37,7 +38,7 @@ display(fig2 , target="output")`;
     return(
             <div>
               {
-                runOnce.current && <Python codes={python_codes} />
+                runOnce.current && <Python object={global_curio.connect} codes={python_codes} />
                 // runOnce.current && <Python />
               }
             </div>
