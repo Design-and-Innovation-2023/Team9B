@@ -24,27 +24,27 @@ export class Curio extends DeviceController {
 		await this.UART.write(`go( -1000, -1000, 600 )\n`);
 	}
 
-    turnLeft()
+    async turnLeft()
     {
-		this.UART.write(`go( 1000, -1000, 600 )\n`);
+		await this.UART.write(`go( 1000, -1000, 600 )\n`);
 	}
 
-    turnRight()
+    async turnRight()
     {
-		this.UART.write(`go( -1000, 1000, 600 )\n`);
+		await this.UART.write(`go( -1000, 1000, 600 )\n`);
 	}
 
-	stop()
+	async stop()
     {
-		this.UART.write(`go(0, 0)\n`);
+		await this.UART.write(`go(0, 0)\n`);
 	}
 
-	customCommand(text_cmd)
+	async customCommand(text_cmd)
 	{
 		try
 		{
 			let proper_cmd = String(text_cmd) + "\n";
-			this.UART.write( proper_cmd );
+			await this.UART.write( proper_cmd );
 		}
 		catch(err)
 		{

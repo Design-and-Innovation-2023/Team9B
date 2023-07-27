@@ -30,11 +30,41 @@ plt.scatter( x , y )
 plt.title("^ shape")
 display(fig2 , target="output")
 
-# from js import toggleConnect
-# toggleConnect.click()
-import time
-from js import forward,backward,turnLeft,turnRight,stop,movement1
-movement1.click()`;
+import asyncio
+
+async def moveforward():
+    forward.click()
+    return
+
+async def movebackward():
+    backward.click()
+    return
+
+async def rotateLeft():
+    turnLeft.click()
+    return
+
+async def rotateRight():
+    turnRight.click()
+    return
+
+task1 = asyncio.create_task( moveforward()    )
+task2 = asyncio.create_task( movebackward()   )
+task3 = asyncio.create_task( rotateLeft()     )
+task4 = asyncio.create_task( rotateRight()    )
+task5 = asyncio.create_task( asyncio.sleep(3) )
+
+asyncio.ensure_future( task1 )
+asyncio.ensure_future( task5 )
+
+asyncio.ensure_future( task2 )
+asyncio.ensure_future( task5 )
+
+asyncio.ensure_future( task3 )
+asyncio.ensure_future( task5 )
+
+asyncio.ensure_future( task4 )
+asyncio.ensure_future( task5 )`;
 
     const runOnce = useRef(true);
     /*----------------------------------------------------------------------------------------------------------------*/

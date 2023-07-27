@@ -40,7 +40,7 @@ export default function Python( { instructions , hints } ) {
     async function forward() {
         if(  global_curio && global_curio.getConnection() )
         {
-            global_curio.forward();
+            await global_curio.forward();
         }
         return;
     }
@@ -48,7 +48,7 @@ export default function Python( { instructions , hints } ) {
     async function backward() {
         if(  global_curio && global_curio.getConnection() )
         {
-            global_curio.backward();
+            await global_curio.backward();
         }
         return;
     }
@@ -56,7 +56,7 @@ export default function Python( { instructions , hints } ) {
     async function turnLeft() {
         if(  global_curio && global_curio.getConnection() )
         {
-            global_curio.turnLeft();
+            await global_curio.turnLeft();
         }
         return;
     }
@@ -64,7 +64,7 @@ export default function Python( { instructions , hints } ) {
     async function turnRight() {
         if(  global_curio && global_curio.getConnection() )
         {
-            global_curio.turnRight();
+            await global_curio.turnRight();
         }
         return;
     }
@@ -72,7 +72,7 @@ export default function Python( { instructions , hints } ) {
     async function stop() {
         if(  global_curio && global_curio.getConnection() )
         {
-            global_curio.stop();
+            await global_curio.stop();
         }
         return;
     }
@@ -108,13 +108,14 @@ export default function Python( { instructions , hints } ) {
                 {
                     runOnce.current && 
                     <div>
+                        <span><b>Reload the page if unable to control robot from Python</b></span><br/>
                         <input type="button" id="toggleConnect" onClick={toggleConnect} value="Connect"    />
-                        <input type="button" id="forward"       onClick={forward}       value="Forward"    />
-                        <input type="button" id="backward"      onClick={backward}      value="Backward"   />
-                        <input type="button" id="turnLeft"      onClick={turnLeft}      value="Turn Left"  />
-                        <input type="button" id="turnRight"     onClick={turnRight}     value="Turn Right" />
-                        <input type="button" id="stop"          onClick={stop}          value="Stop"       />
-                        <input type="button" id="movement1"     onClick={movement1}     value="Movement 1" />
+                        <input type="button" id="forward"       onClick={ async () => await forward()  } value="Forward"    />
+                        <input type="button" id="backward"      onClick={ async () => await backward() } value="Backward"   />
+                        <input type="button" id="turnLeft"      onClick={ async () => await turnLeft() } value="Turn Left"  />
+                        <input type="button" id="turnRight"     onClick={ async () => await turnRight()} value="Turn Right" />
+                        <input type="button" id="stop"          onClick={ async () => await stop()     } value="Stop"       />
+                        <input type="button" id="movement1"     onClick={ async () => await movement1()} value="Movement 1" />
                         <table>
                             <thead>
                                 <tr>
@@ -137,48 +138,45 @@ export default function Python( { instructions , hints } ) {
                                     <td id="code_container">
                                             <div id="python-container">
                                                 <span>Input:</span><br/>
-                                                <script type="text/javascript">
-                                                    toggleConnect = document.getElementById(`toggleConnect`)
-                                                </script>
-                                                <script type="text/javascript">
-                                                    forward = document.getElementById(`forward`)
-                                                </script>
-                                                <script type="text/javascript">
-                                                    backward = document.getElementById(`backward`)
-                                                </script>
-                                                <script type="text/javascript">
-                                                    turnLeft = document.getElementById(`turnLeft`)
-                                                </script>
-                                                <script type="text/javascript">
-                                                    turnRight = document.getElementById(`turnRight`)
-                                                </script>
-                                                <script type="text/javascript">
-                                                    stop = document.getElementById(`stop`)
-                                                </script>
-                                                <script type="text/javascript">
-                                                    movement1 = document.getElementById(`movement1`)
-                                                </script>
 
                                                 <ErrorBoundary fallback="Error">
-                                                    {/* <PyScriptProvider> */}
 
                                                         <ErrorBoundary fallback="Error">
+
+                                                            <script type="text/javascript">
+                                                                toggleConnect = document.getElementById(`toggleConnect`)
+                                                            </script>
+                                                            <script type="text/javascript">
+                                                                forward = document.getElementById(`forward`)
+                                                            </script>
+                                                            <script type="text/javascript">
+                                                                backward = document.getElementById(`backward`)
+                                                            </script>
+                                                            <script type="text/javascript">
+                                                                turnLeft = document.getElementById(`turnLeft`)
+                                                            </script>
+                                                            <script type="text/javascript">
+                                                                turnRight = document.getElementById(`turnRight`)
+                                                            </script>
+                                                            <script type="text/javascript">
+                                                                stop = document.getElementById(`stop`)
+                                                            </script>
+                                                            <script type="text/javascript">
+                                                                movement1 = document.getElementById(`movement1`)
+                                                            </script>
+
                                                             <py-script>
                                                                 from js import toggleConnect,forward,backward,turnLeft,turnRight,movement1
                                                             </py-script>
+
                                                         </ErrorBoundary>
 
-                                                        {/* <ErrorBoundary fallback="Error">
-                                                            <py-config>packages = ["numpy","pandas","matplotlib","scikit-learn","asyncio"]</py-config>
-                                                        </ErrorBoundary> */}
-                                                    
-                                                        {/* <py-script>{codes}</py-script> */}
                                                         <ErrorBoundary fallback="Error">
                                                             <py-repl />
                                                         </ErrorBoundary>
                                                         
-                                                    {/* </PyScriptProvider> */}
                                                 </ErrorBoundary>
+
                                                 <hr />
                                                 <span>Output:</span><br/>
                                                 <div id="output-container">

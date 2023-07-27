@@ -22,12 +22,15 @@ export default function RootLayout({ children }) {
               </head>
               <body className={inter.className}>
                   <ErrorBoundary fallback="Error">
-                    <Banner />
-                    <ErrorBoundary fallback={children}>
-                        <PyScriptProvider>
-                              {children}
-                        </PyScriptProvider>
-                    </ErrorBoundary>
+                        <Banner />
+                        <ErrorBoundary  fallback={children}>
+                                <PyScriptProvider>
+                                      <ErrorBoundary fallback="Error">
+                                          <py-config>packages = ["numpy","pandas","matplotlib","scikit-learn","asyncio"]</py-config>
+                                      </ErrorBoundary>
+                                      {children}
+                                </PyScriptProvider>
+                        </ErrorBoundary>
                   </ErrorBoundary>
               </body>
         </html>
