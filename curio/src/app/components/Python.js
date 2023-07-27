@@ -1,7 +1,10 @@
-import                                   '../styles/Python.css'
-import { global_curio }             from './Curio';
-import { PyScriptProvider }         from 'pyscript-react' 
+'use client'
+
+import                                    '../styles/Python.css'
+import { global_curio }              from './Curio';
+import { PyScriptProvider }          from 'pyscript-react' 
 import React, { useRef , useEffect } from "react";
+import { ErrorBoundary }             from './ErrorBoundary';
 
 // https://github.com/Py4Js/pyscript-react
 // https://pyscript.net/examples/matplotlib.html
@@ -101,7 +104,7 @@ export default function Python( { instructions , hints } ) {
       }, [runOnce] );
     /*----------------------------------------------------------------------------------------------------------------*/
     return(
-            <div>
+            <ErrorBoundary fallback="Error">
                 {
                     runOnce.current && 
                     <div>
@@ -156,16 +159,33 @@ export default function Python( { instructions , hints } ) {
                                                     movement1 = document.getElementById(`movement1`)
                                                 </script>
 
-                                                <PyScriptProvider>
-                                                    <py-config>packages = ["numpy","pandas","matplotlib","scikit-learn","asyncio"]</py-config>
-                                                    {/* <py-script>{codes}</py-script> */}
-                                                    <py-repl />
-                                                </PyScriptProvider>
+                                                <ErrorBoundary fallback="Error">
+                                                    {/* <PyScriptProvider> */}
+
+                                                        <ErrorBoundary fallback="Error">
+                                                            <py-script>
+                                                                from js import toggleConnect,forward,backward,turnLeft,turnRight,movement1
+                                                            </py-script>
+                                                        </ErrorBoundary>
+
+                                                        {/* <ErrorBoundary fallback="Error">
+                                                            <py-config>packages = ["numpy","pandas","matplotlib","scikit-learn","asyncio"]</py-config>
+                                                        </ErrorBoundary> */}
+                                                    
+                                                        {/* <py-script>{codes}</py-script> */}
+                                                        <ErrorBoundary fallback="Error">
+                                                            <py-repl />
+                                                        </ErrorBoundary>
+                                                        
+                                                    {/* </PyScriptProvider> */}
+                                                </ErrorBoundary>
                                                 <hr />
                                                 <span>Output:</span><br/>
                                                 <div id="output-container">
                                                     <div id="py-terminal-div">
-                                                        <py-terminal output="output" />
+                                                        <ErrorBoundary fallback="Error">
+                                                            <py-terminal output="output" />
+                                                        </ErrorBoundary>
                                                     </div>
                                                     <div id="output" name="output" />
                                                 </div>
@@ -176,8 +196,7 @@ export default function Python( { instructions , hints } ) {
                         </table>
                     </div>
                 }
-            </div>
-
-            
+            </ErrorBoundary>
+           
           );
 };

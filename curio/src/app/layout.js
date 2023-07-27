@@ -1,6 +1,10 @@
+'use client'
+
 import './globals.css'
-import { Inter } from 'next/font/google'
-import Banner    from './components/Banner'
+import { Inter }            from 'next/font/google'
+import Banner               from './components/Banner'
+import { PyScriptProvider } from 'pyscript-react' 
+import { ErrorBoundary }    from './components/ErrorBoundary';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,9 +17,18 @@ export default function RootLayout({ children }) {
   return (
     <>
         <html lang="en">
+              <head>
+                    <link rel="shortcut icon" href="#" />
+              </head>
               <body className={inter.className}>
+                  <ErrorBoundary fallback="Error">
                     <Banner />
-                    {children}
+                    <ErrorBoundary fallback={children}>
+                        <PyScriptProvider>
+                              {children}
+                        </PyScriptProvider>
+                    </ErrorBoundary>
+                  </ErrorBoundary>
               </body>
         </html>
     </>

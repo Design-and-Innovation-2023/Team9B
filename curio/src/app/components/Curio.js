@@ -14,14 +14,14 @@ export class Curio extends DeviceController {
 		return this.state;
 	}
 
-    forward()
+    async forward()
     {
-		this.UART.write(`go( 1000, 1000, 600 )\n`);
+		await this.UART.write(`go( 1000, 1000, 600 )\n`);
 	}
 
-    backward()
+    async backward()
     {
-		this.UART.write(`go( -1000, -1000, 600 )\n`);
+		await this.UART.write(`go( -1000, -1000, 600 )\n`);
 	}
 
     turnLeft()

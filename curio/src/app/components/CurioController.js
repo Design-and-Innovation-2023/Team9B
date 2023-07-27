@@ -1,5 +1,8 @@
+'use client'
+
 import { global_curio , Curio }               from './Curio';
 import React, { useRef, useEffect, useState } from "react";
+import { ErrorBoundary }                      from './ErrorBoundary';
 
 export default function CurioController() {
 
@@ -40,8 +43,6 @@ const detectKeyRelease = (e) => {
   useEffect(() => {
     if (runOnce.current) {
       runOnce.current = false;
-      // setCurio( new Curio() );
-      // setCurio( global_curio );
     }
   }, [runOnce]);
   /*----------------------------------------------------------------------------------------------------------------*/
@@ -53,8 +54,8 @@ const detectKeyRelease = (e) => {
         {
           global_curio.connect(() => {
                                   console.log("Connected");
-                                  window.addEventListener('keydown' , (e)=> detectKeyPressed(e) )
-                                  window.addEventListener('keyup'   , (e)=> detectKeyRelease(e) )
+                                  window.addEventListener('keydown' , detectKeyPressed )
+                                  window.addEventListener('keyup'   , detectKeyRelease )
                                   setConnect(true);
                                   global_curio.setConnection(true);
                                 }
@@ -73,6 +74,8 @@ const detectKeyRelease = (e) => {
     {
       global_curio.disconnect(() => {
                                 console.log("Disconnected");
+                                window.removeEventListener('keydown', detectKeyPressed )
+                                window.removeEventListener('keyup'  , detectKeyRelease )
                                 setConnect(false);
                                 global_curio.setConnection(false);
                              }
@@ -123,7 +126,7 @@ const detectKeyRelease = (e) => {
   /*----------------------------------------------------------------------------------------------------------------*/
 
     return(
-            <div>
+            <ErrorBoundary fallback="Error">
                 <table border="black">
                   <thead>
                     <tr>
@@ -187,6 +190,6 @@ const detectKeyRelease = (e) => {
 
                   </tbody>
                 </table>
-            </div>
+            </ErrorBoundary>
           );
 };
