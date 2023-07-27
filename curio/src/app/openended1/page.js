@@ -30,41 +30,35 @@ plt.scatter( x , y )
 plt.title("^ shape")
 display(fig2 , target="output")
 
-import asyncio
-
-async def moveforward():
+import time
+def moveforward():
     forward.click()
     return
-
-async def movebackward():
+def movebackward():
     backward.click()
     return
-
-async def rotateLeft():
+def rotateLeft():
     turnLeft.click()
     return
-
-async def rotateRight():
+def rotateRight():
     turnRight.click()
     return
+def wait():
+    sleep.click()
+    return
+def do_movement1():
+    movement1.click()
+    return
 
-task1 = asyncio.create_task( moveforward()    )
-task2 = asyncio.create_task( movebackward()   )
-task3 = asyncio.create_task( rotateLeft()     )
-task4 = asyncio.create_task( rotateRight()    )
-task5 = asyncio.create_task( asyncio.sleep(3) )
-
-asyncio.ensure_future( task1 )
-asyncio.ensure_future( task5 )
-
-asyncio.ensure_future( task2 )
-asyncio.ensure_future( task5 )
-
-asyncio.ensure_future( task3 )
-asyncio.ensure_future( task5 )
-
-asyncio.ensure_future( task4 )
-asyncio.ensure_future( task5 )`;
+moveforward()
+wait()
+movebackward()
+wait()
+rotateLeft()
+wait()
+rotateRight()
+wait()
+do_movement1()`;
 
     const runOnce = useRef(true);
     /*----------------------------------------------------------------------------------------------------------------*/

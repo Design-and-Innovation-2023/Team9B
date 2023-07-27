@@ -13,7 +13,9 @@ import { ErrorBoundary }             from './ErrorBoundary';
 export default function Python( { instructions , hints } ) {
 
     /*----------------------------------------------------------------------------------------------------------------*/
-    async function toggleConnect() {
+
+    async function toggleConnect() 
+    {
         const btn = document.getElementById('toggleConnect')
         if( global_curio != null )
         {
@@ -37,51 +39,76 @@ export default function Python( { instructions , hints } ) {
         return;
     }
 
-    async function forward() {
+    function forward() 
+    {
         if(  global_curio && global_curio.getConnection() )
         {
-            await global_curio.forward();
+            global_curio.forward();
         }
         return;
     }
 
-    async function backward() {
+    function backward() 
+    {
         if(  global_curio && global_curio.getConnection() )
         {
-            await global_curio.backward();
+            global_curio.backward();
         }
         return;
     }
 
-    async function turnLeft() {
+    function turnLeft() 
+    {
         if(  global_curio && global_curio.getConnection() )
         {
-            await global_curio.turnLeft();
+            global_curio.turnLeft();
         }
         return;
     }
 
-    async function turnRight() {
+    function turnRight() 
+    {
         if(  global_curio && global_curio.getConnection() )
         {
-            await global_curio.turnRight();
+            global_curio.turnRight();
         }
         return;
     }
 
-    async function stop() {
+    function stop() 
+    {
         if(  global_curio && global_curio.getConnection() )
         {
-            await global_curio.stop();
+            global_curio.stop();
         }
         return;
     }
 
-    async function movement1() {
+    function sleep( milliseconds )
+    {
+        return new Promise(resolve => setTimeout( resolve, milliseconds ));
+    }
+
+    async function movement1() 
+    {
+        const _delay = 1800;
+
         forward();
-        setTimeout( backward  , 1800 );
-        setTimeout( turnLeft  , 3600 );
-        setTimeout( turnRight , 5400 );
+        await sleep(1800);
+
+        backward();
+        await sleep(1800);
+
+        turnLeft();
+        await sleep(1800);
+
+        turnRight();
+        await sleep(1800);
+
+        // forward();
+        // setTimeout( backward  , _delay   );
+        // setTimeout( turnLeft  , _delay*2 );
+        // setTimeout( turnRight , _delay*3 );
     }
     /*----------------------------------------------------------------------------------------------------------------*/
     const runOnce = useRef(true);
@@ -108,14 +135,15 @@ export default function Python( { instructions , hints } ) {
                 {
                     runOnce.current && 
                     <div>
-                        <span><b>Reload the page if unable to control robot from Python</b></span><br/>
-                        <input type="button" id="toggleConnect" onClick={toggleConnect} value="Connect"    />
-                        <input type="button" id="forward"       onClick={ async () => await forward()  } value="Forward"    />
-                        <input type="button" id="backward"      onClick={ async () => await backward() } value="Backward"   />
-                        <input type="button" id="turnLeft"      onClick={ async () => await turnLeft() } value="Turn Left"  />
-                        <input type="button" id="turnRight"     onClick={ async () => await turnRight()} value="Turn Right" />
-                        <input type="button" id="stop"          onClick={ async () => await stop()     } value="Stop"       />
-                        <input type="button" id="movement1"     onClick={ async () => await movement1()} value="Movement 1" />
+                        <span><b>Reload the page if unable to control robot from Python or any error encountered</b></span><br/>
+                        <input type="button" id="toggleConnect" onClick={ toggleConnect     }             value="Connect"    />
+                        <input type="button" id="forward"       onClick={ () => forward()   }             value="Forward"    />
+                        <input type="button" id="backward"      onClick={ () => backward()  }             value="Backward"   />
+                        <input type="button" id="turnLeft"      onClick={ () => turnLeft()  }             value="Turn Left"  />
+                        <input type="button" id="turnRight"     onClick={ () => turnRight() }             value="Turn Right" />
+                        <input type="button" id="stop"          onClick={ () => stop()      }             value="Stop"       />
+                        <input type="button" id="sleep"         onClick={ async () => await sleep(1800) } value="Sleep"      />
+                        <input type="button" id="movement1"     onClick={ async () => await movement1() } value="Movement 1" />
                         <table>
                             <thead>
                                 <tr>
@@ -142,33 +170,8 @@ export default function Python( { instructions , hints } ) {
                                                 <ErrorBoundary fallback="Error">
 
                                                         <ErrorBoundary fallback="Error">
-
-                                                            <script type="text/javascript">
-                                                                toggleConnect = document.getElementById(`toggleConnect`)
-                                                            </script>
-                                                            <script type="text/javascript">
-                                                                forward = document.getElementById(`forward`)
-                                                            </script>
-                                                            <script type="text/javascript">
-                                                                backward = document.getElementById(`backward`)
-                                                            </script>
-                                                            <script type="text/javascript">
-                                                                turnLeft = document.getElementById(`turnLeft`)
-                                                            </script>
-                                                            <script type="text/javascript">
-                                                                turnRight = document.getElementById(`turnRight`)
-                                                            </script>
-                                                            <script type="text/javascript">
-                                                                stop = document.getElementById(`stop`)
-                                                            </script>
-                                                            <script type="text/javascript">
-                                                                movement1 = document.getElementById(`movement1`)
-                                                            </script>
-
-                                                            <py-script>
-                                                                from js import toggleConnect,forward,backward,turnLeft,turnRight,movement1
-                                                            </py-script>
-
+                                                            <script type="text/javascript" src="./js_script.js"></script>
+                                                            <py-script src="./py_script.py"></py-script>
                                                         </ErrorBoundary>
 
                                                         <ErrorBoundary fallback="Error">
@@ -182,7 +185,7 @@ export default function Python( { instructions , hints } ) {
                                                 <div id="output-container">
                                                     <div id="py-terminal-div">
                                                         <ErrorBoundary fallback="Error">
-                                                            <py-terminal output="output" />
+                                                            <py-terminal auto docked output="output" class="py-terminal-docked" />
                                                         </ErrorBoundary>
                                                     </div>
                                                     <div id="output" name="output" />

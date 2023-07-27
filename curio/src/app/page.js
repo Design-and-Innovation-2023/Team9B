@@ -12,7 +12,7 @@ const App = () => {
   useEffect(() => {
     if (runOnce.current) {
       runOnce.current = false;
-      setGreeting("Welcome to Team 9B Curio project for Summer Widening 2023!");
+      setGreeting("Welcome to Team 9B Curio activities for Summer Widening 2023!");
     }
   }, [runOnce]);
   /*----------------------------------------------------------------------------------------------------------------*/

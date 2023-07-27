@@ -2,11 +2,12 @@ import { DeviceController } from '@espruino-tools/core'
 
 export class Curio extends DeviceController {
 
-	state = false;
+	state  = false;
 
 	setConnection(flag)
 	{
-		this.state = flag
+		this.state = flag;
+		return;
 	}
 
 	getConnection()
@@ -14,42 +15,58 @@ export class Curio extends DeviceController {
 		return this.state;
 	}
 
-    async forward()
+    forward()
     {
-		await this.UART.write(`go( 1000, 1000, 600 )\n`);
+		this.UART.write(`go( 1000, 1000, 600 )\n`);
+		console.log("moving forward");
+		// setTimeout( this.stop.bind(this) , 1800 );
+		return;
 	}
 
-    async backward()
+    backward()
     {
-		await this.UART.write(`go( -1000, -1000, 600 )\n`);
+		this.UART.write(`go( -1000, -1000, 600 )\n`);
+		console.log("moving backward");
+		// setTimeout( this.stop.bind(this) , 1800 );
+		return;
 	}
 
-    async turnLeft()
+    turnLeft()
     {
-		await this.UART.write(`go( 1000, -1000, 600 )\n`);
+		this.UART.write(`go( 1000, -1000, 600 )\n`);
+		console.log("turning left");
+		// setTimeout( this.stop.bind(this) , 1800 );
+		return;
 	}
 
-    async turnRight()
+    turnRight()
     {
-		await this.UART.write(`go( -1000, 1000, 600 )\n`);
+		this.UART.write(`go( -1000, 1000, 600 )\n`);
+		console.log("turning right");
+		// setTimeout( this.stop.bind(this) , 1800 );
+		return;
 	}
 
-	async stop()
+	stop()
     {
-		await this.UART.write(`go(0, 0)\n`);
+		this.UART.write(`go(0, 0)\n`);
+		console.log("moving stopped");
+		return;
 	}
 
-	async customCommand(text_cmd)
+	customCommand(text_cmd)
 	{
 		try
 		{
 			let proper_cmd = String(text_cmd) + "\n";
-			await this.UART.write( proper_cmd );
+			this.UART.write( proper_cmd );
+			return;
 		}
 		catch(err)
 		{
 			console.log(err);
 		}
+		return;
 	}
 
 };
