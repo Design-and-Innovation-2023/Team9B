@@ -13,6 +13,7 @@ export default function CurioController() {
   /*----------------------------------------------------------------------------------------------------------------*/
    
   const detectKeyPressed = (e) => {
+
     if( e.key === 'w' || e.key === 'W' )
     {
       moveForward();
@@ -145,7 +146,7 @@ const detectKeyRelease = (e) => {
                                 (<input type="button" id="btn_Connect"    onClick={connectToRobot}      value="Connect to Robot"/>     )
                             }
                       </td>
-                      <td>Escape</td>
+                      <td></td>
                     </tr>
 
                     <tr>
@@ -185,7 +186,7 @@ const detectKeyRelease = (e) => {
                       <td>
                         <input type="button" id="btn_Stop"      onClick={stop}          value="Stop"/>
                       </td>
-                      <td>Space</td>
+                      <td></td>
                     </tr>
                     
                   </tbody>

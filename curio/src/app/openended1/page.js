@@ -32,43 +32,27 @@ display(fig2 , target="output")
 
 #-------------------------------------------
 # Control the robot via Python below
-import asyncio
-#-------------------------------------------
-# interact with the buttons programmatically
-#-------------------------------------------
-def moveforward():
-    forward.click()
-    return
-def movebackward():
-    backward.click()
-    return
-def rotateLeft():
-    turnLeft.click()
-    return
-def rotateRight():
-    turnRight.click()
-    return
-def do_movement1():
-    movement1.click()
-    return
-#-------------------------------------------
 # create your own custom robot movements
 #-------------------------------------------
+import asyncio
 async def shuriken_movement():
+	# moveforward()
+	# rotateRight()
+
 	movebackward()
-	await sleep2(1800)
+	await sleep(1800)
 
 	rotateLeft()
-	await sleep2(1800)
+	await sleep(1800)
 
 	movebackward()
-	await sleep2(1800)
-	
+	await sleep(1800)
+
 	rotateLeft()
-	await sleep2(1800)
+	await sleep(1800)
 
 	movebackward()
-	await sleep2(1800)
+	await sleep(1800)
 
 	rotateLeft()
 	await sleep2(1800)

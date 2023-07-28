@@ -85,32 +85,6 @@ export default function Python( { instructions , hints } ) {
         return;
     }
 
-    function sleep( milliseconds )
-    {
-        return new Promise(resolve => setTimeout( resolve, milliseconds ));
-    }
-
-    async function movement1() 
-    {
-        const _delay = 1800;
-
-        forward();
-        await sleep(1800);
-
-        backward();
-        await sleep(1800);
-
-        turnLeft();
-        await sleep(1800);
-
-        turnRight();
-        await sleep(1800);
-
-        // forward();
-        // setTimeout( backward  , _delay   );
-        // setTimeout( turnLeft  , _delay*2 );
-        // setTimeout( turnRight , _delay*3 );
-    }
     /*----------------------------------------------------------------------------------------------------------------*/
     const runOnce = useRef(true);
     useEffect(() => {
