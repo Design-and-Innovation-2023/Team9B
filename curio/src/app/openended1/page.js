@@ -30,7 +30,8 @@ plt.scatter( x , y )
 plt.title("^ shape")
 display(fig2 , target="output")
 
-import time
+import asyncio
+
 def moveforward():
     forward.click()
     return
@@ -50,15 +51,20 @@ def do_movement1():
     movement1.click()
     return
 
-moveforward()
-wait()
-movebackward()
-wait()
-rotateLeft()
-wait()
-rotateRight()
-wait()
-do_movement1()`;
+async def movement2():
+	moveforward()
+	await sleep2(1800)
+
+	movebackward()
+	await sleep2(1800)
+
+	rotateLeft()
+	await sleep2(1800)
+
+	rotateRight()
+	await sleep2(1800)
+
+asyncio.ensure_future( movement2() ) `;
 
     const runOnce = useRef(true);
     /*----------------------------------------------------------------------------------------------------------------*/

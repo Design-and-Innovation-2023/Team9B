@@ -10,13 +10,6 @@ movement1     = document.getElementById(`movement1`)
 
 function sleep2( milliseconds )
 {
-    ( async () => {
-                    await ( 
-                            async () => {
-                                            return await new Promise(resolve => setTimeout( resolve, milliseconds ));
-                                        }
-                          )();
-                  }
-    )();
+    return new Promise(resolve => setTimeout( resolve, milliseconds ));
 }
 
