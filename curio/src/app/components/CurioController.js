@@ -124,22 +124,6 @@ const detectKeyRelease = (e) => {
     return;
   }
   /*----------------------------------------------------------------------------------------------------------------*/
-  const turnLeft2 = () =>{
-    if( global_curio && global_curio.getConnection() )
-    {
-      global_curio.turnLeft2();
-    }
-    return;
-  }
-  /*----------------------------------------------------------------------------------------------------------------*/
-  const turnLeft3 = () =>{
-    if( global_curio && global_curio.getConnection() )
-    {
-      global_curio.turnLeft3();
-    }
-    return;
-  }
-  /*----------------------------------------------------------------------------------------------------------------*/
 
     return(
             <ErrorBoundary fallback="Error">
@@ -203,23 +187,7 @@ const detectKeyRelease = (e) => {
                       </td>
                       <td>Space</td>
                     </tr>
-
-                    <tr>
-                      <td>Step 7 :</td>
-                      <td>
-                        <input type="button" id="btn_turnLeft2"  onClick={turnLeft2}   value="turnLeft2"/>
-                      </td>
-                      <td>Space</td>
-                    </tr>
-
-                    <tr>
-                      <td>Step 8 :</td>
-                      <td>
-                        <input type="button" id="btn_turnLeft3"  onClick={turnLeft3}   value="turnLeft3"/>
-                      </td>
-                      <td>Space</td>
-                    </tr>
-
+                    
                   </tbody>
                 </table>
             </ErrorBoundary>

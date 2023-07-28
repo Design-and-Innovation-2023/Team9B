@@ -1,6 +1,7 @@
 'use client'
 
 import                                    '../styles/Python.css'
+import Script                        from 'next/script'
 import { global_curio }              from './Curio';
 import { PyScriptProvider }          from 'pyscript-react' 
 import React, { useRef , useEffect } from "react";
@@ -142,8 +143,6 @@ export default function Python( { instructions , hints } ) {
                         <input type="button" id="turnLeft"      onClick={ () => turnLeft()  }             value="Turn Left"  />
                         <input type="button" id="turnRight"     onClick={ () => turnRight() }             value="Turn Right" />
                         <input type="button" id="stop"          onClick={ () => stop()      }             value="Stop"       />
-                        <input type="button" id="sleep"         onClick={ async () => await sleep(1800) } value="Sleep"      />
-                        <input type="button" id="movement1"     onClick={ async () => await movement1() } value="Movement 1" />
                         <table>
                             <thead>
                                 <tr>
@@ -170,7 +169,7 @@ export default function Python( { instructions , hints } ) {
                                                 <ErrorBoundary fallback="Error">
 
                                                         <ErrorBoundary fallback="Error">
-                                                            <script type="text/javascript" src="./js_script.js"></script>
+                                                            <Script    src="./js_script.js" strategy="afterInteractive"></Script>
                                                             <py-script src="./py_script.py"></py-script>
                                                         </ErrorBoundary>
 
@@ -185,7 +184,7 @@ export default function Python( { instructions , hints } ) {
                                                 <div id="output-container">
                                                     <div id="py-terminal-div">
                                                         <ErrorBoundary fallback="Error">
-                                                            <py-terminal auto docked output="output" class="py-terminal-docked" />
+                                                            <py-terminal terminal="true" docked="true" />
                                                         </ErrorBoundary>
                                                     </div>
                                                     <div id="output" name="output" />

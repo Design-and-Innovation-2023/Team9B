@@ -39,22 +39,6 @@ export class Curio extends DeviceController {
 		return;
 	}
 
-	turnLeft2()
-    {
-		this.UART.write(`go( 500, -500, 600)\n`);
-		console.log("turning left2");
-		// setTimeout( this.stop.bind(this) , 1800 );
-		return;
-	}
-
-	turnLeft3()
-    {
-		this.UART.write(`go( 1333.33, -1333.33, 600 )\n`);
-		console.log("turning left2");
-		// setTimeout( this.stop.bind(this) , 1800 );
-		return;
-	}
-
     turnRight()
     {
 		this.UART.write(`go( -1000, 1000, 600 )\n`);
