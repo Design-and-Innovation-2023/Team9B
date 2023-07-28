@@ -30,8 +30,12 @@ plt.scatter( x , y )
 plt.title("^ shape")
 display(fig2 , target="output")
 
+#-------------------------------------------
+# Control the robot via Python below
 import asyncio
-
+#-------------------------------------------
+# interact with the buttons programmatically
+#-------------------------------------------
 def moveforward():
     forward.click()
     return
@@ -44,27 +48,36 @@ def rotateLeft():
 def rotateRight():
     turnRight.click()
     return
-def wait():
-    sleep.click()
-    return
 def do_movement1():
     movement1.click()
     return
-
-async def movement2():
+#-------------------------------------------
+# create your own custom robot movements
+#-------------------------------------------
+async def square_movement():
 	moveforward()
-	await sleep2(1800)
-
-	movebackward()
 	await sleep2(1800)
 
 	rotateLeft()
 	await sleep2(1800)
 
-	rotateRight()
+	moveforward()
+	await sleep2(1800)
+	
+	rotateLeft()
 	await sleep2(1800)
 
-asyncio.ensure_future( movement2() ) `;
+	moveforward()
+	await sleep2(1800)
+
+	rotateLeft()
+	await sleep2(1800)
+
+	moveforward()
+	await sleep2(1800)
+#-------------------------------------------
+asyncio.ensure_future( square_movement() ) 
+#-------------------------------------------`;
 
     const runOnce = useRef(true);
     /*----------------------------------------------------------------------------------------------------------------*/
