@@ -54,29 +54,32 @@ def do_movement1():
 #-------------------------------------------
 # create your own custom robot movements
 #-------------------------------------------
-async def square_movement():
-	moveforward()
+async def shuriken_movement():
+	movebackward()
 	await sleep2(1800)
 
 	rotateLeft()
 	await sleep2(1800)
 
-	moveforward()
+	movebackward()
 	await sleep2(1800)
 	
 	rotateLeft()
 	await sleep2(1800)
 
-	moveforward()
+	movebackward()
 	await sleep2(1800)
 
 	rotateLeft()
 	await sleep2(1800)
 
-	moveforward()
+	movebackward()
+	await sleep2(1800)
+
+	rotateLeft()
 	await sleep2(1800)
 #-------------------------------------------
-asyncio.ensure_future( square_movement() ) 
+asyncio.ensure_future( shuriken_movement() ) 
 #-------------------------------------------`;
 
     const runOnce = useRef(true);
