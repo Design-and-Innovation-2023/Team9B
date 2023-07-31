@@ -76,6 +76,42 @@ export default function Python( { instructions , hints } ) {
         return;
     }
 
+    function reverseLeft() 
+    {
+        if(  global_curio && global_curio.getConnection() )
+        {
+            global_curio.reverseLeft();
+        }
+        return;
+    }
+
+    function reverseRight() 
+    {
+        if(  global_curio && global_curio.getConnection() )
+        {
+            global_curio.reverseRight();
+        }
+        return;
+    }
+
+    function rotateLeft() 
+    {
+        if(  global_curio && global_curio.getConnection() )
+        {
+            global_curio.rotateLeft();
+        }
+        return;
+    }
+
+    function rotateRight() 
+    {
+        if(  global_curio && global_curio.getConnection() )
+        {
+            global_curio.rotateRight();
+        }
+        return;
+    }
+
     function stop() 
     {
         if(  global_curio && global_curio.getConnection() )
@@ -120,16 +156,24 @@ export default function Python( { instructions , hints } ) {
                                     <th></th>
                                     <th></th>
                                     <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><input type="button" id="toggleConnect" onClick={ toggleConnect     }             value="Connect"    /></td>
-                                    <td><input type="button" id="forward"       onClick={ () => forward()   }             value="Forward"    /></td>
-                                    <td><input type="button" id="backward"      onClick={ () => backward()  }             value="Backward"   /></td>
-                                    <td><input type="button" id="turnLeft"      onClick={ () => turnLeft()  }             value="Turn Left"  /></td>
-                                    <td><input type="button" id="turnRight"     onClick={ () => turnRight() }             value="Turn Right" /></td>
-                                    <td><input type="button" id="stop"          onClick={ () => stop()      }             value="Stop"       /></td>
+                                    <td><input type="button" id="toggleConnect" onClick={ toggleConnect        } value="Connect"       /></td>
+                                    <td><input type="button" id="forward"       onClick={ () => forward()      } value="Forward"       /></td>
+                                    <td><input type="button" id="backward"      onClick={ () => backward()     } value="Backward"      /></td>
+                                    <td><input type="button" id="turnLeft"      onClick={ () => turnLeft()     } value="Turn Left"     /></td>
+                                    <td><input type="button" id="turnRight"     onClick={ () => turnRight()    } value="Turn Right"    /></td>
+                                    <td><input type="button" id="reverseLeft"   onClick={ () => reverseLeft()  } value="Reverse Left"  /></td>
+                                    <td><input type="button" id="reverseRight"  onClick={ () => reverseRight() } value="Reverse Right" /></td>
+                                    <td><input type="button" id="rotateLeft"    onClick={ () => rotateLeft()   } value="Rotate Left"   /></td>
+                                    <td><input type="button" id="rotateRight"   onClick={ () => rotateRight()  } value="Rotate Right"  /></td>
+                                    <td><input type="button" id="stop"          onClick={ () => stop()         } value="Stop"          /></td>
                                 </tr>
                             </tbody>
                             

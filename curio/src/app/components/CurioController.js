@@ -26,13 +26,13 @@ export default function CurioController() {
     }
     if( e.key === 'a' || e.key === 'A' )
     {
-      turnLeft();
-      console.log('turning left');
+      rotateLeft();
+      console.log('rotate left');
     }
     if( e.key === 'd' || e.key === 'D' )
     {
-      turnRight();
-      console.log('turning right');
+      rotateRight();
+      console.log('rotate right');
     }
 }
 /*----------------------------------------------------------------------------------------------------------------*/
@@ -101,18 +101,18 @@ const detectKeyRelease = (e) => {
     return;
   }
   /*----------------------------------------------------------------------------------------------------------------*/
-  const turnLeft = () =>{
+  const rotateLeft = () =>{
     if( global_curio && global_curio.getConnection() )
     {
-      global_curio.turnLeft();
+      global_curio.rotateLeft();
     }
     return;
   }
   /*----------------------------------------------------------------------------------------------------------------*/
-  const turnRight = () =>{
+  const rotateRight = () =>{
     if( global_curio && global_curio.getConnection() )
     {
-      global_curio.turnRight();
+      global_curio.rotateRight();
     }
     return;
   }
@@ -168,7 +168,7 @@ const detectKeyRelease = (e) => {
                     <tr>
                       <td>Step 4 :</td>
                       <td>
-                        <input type="button" id="btn_turnLeft" onClick={turnLeft}      value="Turn Left"/>
+                        <input type="button" id="btn_rotateLeft" onClick={rotateLeft}   value="Rotate Left"/>
                       </td>
                       <td>A</td>
                     </tr>
@@ -176,7 +176,7 @@ const detectKeyRelease = (e) => {
                     <tr>
                       <td>Step 5 :</td>
                       <td>
-                        <input type="button" id="btn_turnRight" onClick={turnRight}     value="Turn Right"/>
+                        <input type="button" id="btn_rotateRight" onClick={rotateRight} value="Rotate Right"/>
                       </td>
                       <td>D</td>
                     </tr>

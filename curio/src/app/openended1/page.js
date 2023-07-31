@@ -20,6 +20,11 @@ import asyncio
 async def shuriken_movement():
 	# moveforward()
 	# rotateRight()
+	# turnLeft()
+	# turnRight()
+	# reverseLeft()
+	# reverseRight()
+	# stopRobot()
 
 	movebackward()
 	await sleep(1800)

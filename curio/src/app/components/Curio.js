@@ -31,9 +31,9 @@ export class Curio extends DeviceController {
 		return;
 	}
 
-    turnLeft()
+	turnLeft()
     {
-		this.UART.write(`go( 1000, -1000, 600 )\n`);
+		this.UART.write(`go( 1000, 0, 600 )\n`);
 		console.log("turning left");
 		// setTimeout( this.stop.bind(this) , 1800 );
 		return;
@@ -41,8 +41,40 @@ export class Curio extends DeviceController {
 
     turnRight()
     {
+		this.UART.write(`go( 0, 1000, 600 )\n`);
+		console.log("turn right");
+		// setTimeout( this.stop.bind(this) , 1800 );
+		return;
+	}
+
+	reverseLeft()
+    {
+		this.UART.write(`go( 0, -1000, 600 )\n`);
+		console.log("reverse left");
+		// setTimeout( this.stop.bind(this) , 1800 );
+		return;
+	}
+
+    reverseRight()
+    {
+		this.UART.write(`go( -1000, 0, 600 )\n`);
+		console.log("reverse right");
+		// setTimeout( this.stop.bind(this) , 1800 );
+		return;
+	}
+
+    rotateLeft() // anti-clockwise
+    {
+		this.UART.write(`go( 1000, -1000, 600 )\n`);
+		console.log("rotate anti-clockwise");
+		// setTimeout( this.stop.bind(this) , 1800 );
+		return;
+	}
+
+    rotateRight() // clockwise
+    {
 		this.UART.write(`go( -1000, 1000, 600 )\n`);
-		console.log("turning right");
+		console.log("rotate clockwise");
 		// setTimeout( this.stop.bind(this) , 1800 );
 		return;
 	}
