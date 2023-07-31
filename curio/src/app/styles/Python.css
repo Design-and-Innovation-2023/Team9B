@@ -1,9 +1,18 @@
-py-terminal-docked {
-    background-color:darkblue;
+.py-terminal[docked]{
+    background-color:darkblue  !Important;
 }
 
-py-terminal {
-    background-color:darkblue;
+.py-terminal-docked{
+    background-color:darkblue  !Important;
+}
+
+.py-terminal {
+    background-color:darkblue  !Important;
+}
+
+.py-repl-output {
+    display: none !Important;
+    visibility: hidden !Important;
 }
 
 #sample_container {
@@ -27,8 +36,12 @@ py-terminal {
 }
 
 #python-example {
-    width:  400px;
-    height: 1000px;
+    width:  330px;
+    height: 480px;
+    background: #D3D3D3;
+    border-radius: 5px;
+    font-family:"Cascadia Code";
+    font-size: 12px;
 }
 
 #output {

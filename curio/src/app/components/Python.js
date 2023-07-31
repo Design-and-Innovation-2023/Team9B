@@ -111,12 +111,30 @@ export default function Python( { instructions , hints } ) {
                     runOnce.current && 
                     <div>
                         <span><b>Reload the page if unable to control robot from Python or any error encountered</b></span><br/>
-                        <input type="button" id="toggleConnect" onClick={ toggleConnect     }             value="Connect"    />
-                        <input type="button" id="forward"       onClick={ () => forward()   }             value="Forward"    />
-                        <input type="button" id="backward"      onClick={ () => backward()  }             value="Backward"   />
-                        <input type="button" id="turnLeft"      onClick={ () => turnLeft()  }             value="Turn Left"  />
-                        <input type="button" id="turnRight"     onClick={ () => turnRight() }             value="Turn Right" />
-                        <input type="button" id="stop"          onClick={ () => stop()      }             value="Stop"       />
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="button" id="toggleConnect" onClick={ toggleConnect     }             value="Connect"    /></td>
+                                    <td><input type="button" id="forward"       onClick={ () => forward()   }             value="Forward"    /></td>
+                                    <td><input type="button" id="backward"      onClick={ () => backward()  }             value="Backward"   /></td>
+                                    <td><input type="button" id="turnLeft"      onClick={ () => turnLeft()  }             value="Turn Left"  /></td>
+                                    <td><input type="button" id="turnRight"     onClick={ () => turnRight() }             value="Turn Right" /></td>
+                                    <td><input type="button" id="stop"          onClick={ () => stop()      }             value="Stop"       /></td>
+                                </tr>
+                            </tbody>
+                            
+                        </table>
+                                               
                         <table>
                             <thead>
                                 <tr>
