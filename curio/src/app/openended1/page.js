@@ -1,5 +1,6 @@
 'use client'
 
+import                                   '../styles/OpenEnded1.css'
 import React, { useRef, useEffect } from "react";
 import Python                       from '../components/Python';
 
@@ -10,7 +11,7 @@ export default function OpenEnded1( {codes} ) {
 
     /*----------------------------------------------------------------------------------------------------------------*/
 
-    const instructions = `Draw a shuriken shape with the curio robot.\r\nWrite Python codes at the input console and click on the play button to execute.`;
+    const instructions = `Activity 1 : Draw a shuriken shape with the curio robot.`;
     const python_hints = 
 `#-------------------------------------------
 # Control the robot via Python below
@@ -80,7 +81,7 @@ display(fig2 , target="output")`;
     }, [runOnce]);
     /*----------------------------------------------------------------------------------------------------------------*/
     return(
-            <div>
+            <div className="OpenEnded1">
               {
                 runOnce.current && <Python instructions={instructions} hints={python_hints} />
               }

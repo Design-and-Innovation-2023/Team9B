@@ -145,11 +145,12 @@ export default function Python( { instructions , hints } ) {
             <ErrorBoundary fallback="Error">
                 {
                     runOnce.current && 
-                    <div>
-                        <span><b>Reload the page if unable to control robot from Python or any error encountered</b></span><br/>
+                    <div className="PythonContainer">
+                        <center><span className="blink_me"><b>Reload the page if unable to control robot from Python or any error encountered</b></span></center><br/>
                         <table>
                             <thead>
                                 <tr>
+                                    <th></th>
                                     <th></th>
                                     <th></th>
                                     <th></th>
@@ -164,16 +165,17 @@ export default function Python( { instructions , hints } ) {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><input type="button" id="toggleConnect" onClick={ toggleConnect        } value="Connect"       /></td>
-                                    <td><input type="button" id="forward"       onClick={ () => forward()      } value="Forward"       /></td>
-                                    <td><input type="button" id="backward"      onClick={ () => backward()     } value="Backward"      /></td>
-                                    <td><input type="button" id="turnLeft"      onClick={ () => turnLeft()     } value="Turn Left"     /></td>
-                                    <td><input type="button" id="turnRight"     onClick={ () => turnRight()    } value="Turn Right"    /></td>
-                                    <td><input type="button" id="reverseLeft"   onClick={ () => reverseLeft()  } value="Reverse Left"  /></td>
-                                    <td><input type="button" id="reverseRight"  onClick={ () => reverseRight() } value="Reverse Right" /></td>
-                                    <td><input type="button" id="rotateLeft"    onClick={ () => rotateLeft()   } value="Rotate Left"   /></td>
-                                    <td><input type="button" id="rotateRight"   onClick={ () => rotateRight()  } value="Rotate Right"  /></td>
-                                    <td><input type="button" id="stop"          onClick={ () => stop()         } value="Stop"          /></td>
+                                    <td></td>
+                                    <td><input className="btnStyle" type="button" id="toggleConnect" onClick={ toggleConnect        } value="Connect"       /></td>
+                                    <td><input className="btnStyle" type="button" id="forward"       onClick={ () => forward()      } value="Forward"       /></td>
+                                    <td><input className="btnStyle" type="button" id="backward"      onClick={ () => backward()     } value="Backward"      /></td>
+                                    <td><input className="btnStyle" type="button" id="turnLeft"      onClick={ () => turnLeft()     } value="Turn Left"     /></td>
+                                    <td><input className="btnStyle" type="button" id="turnRight"     onClick={ () => turnRight()    } value="Turn Right"    /></td>
+                                    <td><input className="btnStyle" type="button" id="reverseLeft"   onClick={ () => reverseLeft()  } value="Reverse Left"  /></td>
+                                    <td><input className="btnStyle" type="button" id="reverseRight"  onClick={ () => reverseRight() } value="Reverse Right" /></td>
+                                    <td><input className="btnStyle" type="button" id="rotateLeft"    onClick={ () => rotateLeft()   } value="Rotate Left"   /></td>
+                                    <td><input className="btnStyle" type="button" id="rotateRight"   onClick={ () => rotateRight()  } value="Rotate Right"  /></td>
+                                    <td><input className="btnStyle" type="button" id="stop"          onClick={ () => stop()         } value="Stop"          /></td>
                                 </tr>
                             </tbody>
                             
@@ -183,10 +185,11 @@ export default function Python( { instructions , hints } ) {
                             <thead>
                                 <tr>
                                     <th>
-                                        <span>Hints</span>
+                                        <span className="hint">Hints</span>
                                     </th>
                                     <th>
-                                            <span>{instructions}</span>
+                                            <span className="instructions">{instructions}</span><br/>
+                                            <span>Write Python codes at the input console and click on the play button to execute.</span>
                                     </th>
                                 </tr>
                             </thead>

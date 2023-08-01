@@ -1,3 +1,8 @@
+.PythonContainer {
+    width: 90vw;
+    height: 90vh;
+}
+
 .py-terminal[docked]{
     background-color:darkblue  !Important;
 }
@@ -37,7 +42,7 @@
 
 #python-example {
     width:  330px;
-    height: 480px;
+    height: 544px;
     background: #D3D3D3;
     border-radius: 5px;
     font-family:"Cascadia Code";
@@ -54,3 +59,40 @@
     max-width: 500px;
     max-height: 500px;
 }
+
+.btnStyle {
+    border-radius: 5px;
+    vertical-align: middle;
+    background: pink;
+    align-content: center;
+    font-family:"Cascadia Code";
+    font-size: 23px;
+}
+
+.btnStyle:hover {
+    border-radius: 5px;
+    vertical-align: middle;
+    background:#04AA6D;
+    align-content: center;
+    color: white;
+    font-family:"Cascadia Code";
+    font-size: 23px;
+}
+
+.blink_me {
+    animation: blinker 1s linear infinite;
+    color:blue;
+  }
+  
+  @keyframes blinker {  
+    50% { opacity: 0; }
+  }
+
+  .hint {
+    color:gray;
+  }
+
+  .instructions {
+    color: red;
+    font-size: 18px;
+  }

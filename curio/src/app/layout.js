@@ -1,12 +1,12 @@
 'use client'
 
-import './globals.css'
-import { Inter }            from 'next/font/google'
+import                           './globals.css'
+// import { Inter }            from 'next/font/google'
 import Banner               from './components/Banner'
 import { PyScriptProvider } from 'pyscript-react' 
 import { ErrorBoundary }    from './components/ErrorBoundary';
 
-const inter = Inter({ subsets: ['latin'] })
+// const inter = Inter({ subsets: ['latin'] })
 
 // export const metadata = {
 //   title: 'Create Next App',
@@ -20,18 +20,18 @@ export default function RootLayout({ children }) {
               <head>
                     <link rel="shortcut icon" href="#" />
               </head>
-              <body className={inter.className}>
+              <body className="MainContainer">
                   <ErrorBoundary fallback="Error">
                         <Banner />
                         <ErrorBoundary  fallback={children}>
-                                <PyScriptProvider>
-                                      <ErrorBoundary fallback="Error">
+                              <PyScriptProvider>
+                                    <ErrorBoundary fallback="Error">
                                           <py-config>packages = ["numpy","pandas","matplotlib","scikit-learn","asyncio"]</py-config>
-                                      </ErrorBoundary>
-                                      {children}
-                                </PyScriptProvider>
+                                    </ErrorBoundary>
+                                    {children}
+                              </PyScriptProvider>
                         </ErrorBoundary>
-                  </ErrorBoundary>
+                  </ErrorBoundary>     
               </body>
         </html>
     </>
