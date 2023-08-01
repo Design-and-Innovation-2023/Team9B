@@ -1,11 +1,9 @@
-DeviceController = ESPT_core.DeviceController;
-
 function sleep( milliseconds )
 {
     return new Promise(resolve => setTimeout( resolve, milliseconds ));
 }
 
-class CurioController extends DeviceController
+class CurioController extends ESPT_core.DeviceController
 {
     state  = false;
 
@@ -103,8 +101,25 @@ class CurioController extends DeviceController
 		console.log("moving stopped");
 		return;
 	}
+
+	customCommand(text_cmd)
+	{
+		try
+		{
+			proper_cmd = String(text_cmd) + "\n";
+			this.UART.write( proper_cmd );
+			return;
+		}
+		catch(err)
+		{
+			console.log(err);
+		}
+		return;
+	}
 }
 
+DeviceController = ESPT_core.DeviceController;
+curio            = new CurioController();
 _toggleConnect   = document.getElementById(`toggleConnect`);
 _forward         = document.getElementById(`forward`);
 _backward        = document.getElementById(`backward`);
@@ -115,4 +130,4 @@ _reverseRight    = document.getElementById(`reverseRight`);
 _rotateLeft      = document.getElementById(`rotateLeft`);
 _rotateRight     = document.getElementById(`rotateRight`);
 _stopRobot       = document.getElementById(`stop`);
-curio            = new CurioController();
+
