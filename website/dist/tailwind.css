@@ -6695,6 +6695,10 @@ video {
   position:relative
 }
 
+.mt-4{
+  margin-top:1rem
+}
+
 .block{
   display:block
 }
@@ -6705,6 +6709,10 @@ video {
 
 .inline{
   display:inline
+}
+
+.flex{
+  display:flex
 }
 
 .table{
@@ -6723,13 +6731,29 @@ video {
   resize:both
 }
 
+.list-none{
+  list-style-type:none
+}
+
+.items-center{
+  align-items:center
+}
+
 .border{
   border-width:1px
+}
+
+.border-t-4{
+  border-top-width:4px
 }
 
 .bg-sky-400{
   --tw-bg-opacity:1;
   background-color:rgb(56 189 248 / var(--tw-bg-opacity))
+}
+
+.text-center{
+  text-align:center
 }
 
 .text-green-500{
@@ -6778,7 +6802,6 @@ footer, header, hgroup, menu, nav, output, ruby,
 section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
-  border: 0;
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
@@ -9186,7 +9209,7 @@ input[type="button"].small,
 #banner .inner {
   animation: reveal-banner 1s 0.25s ease-in-out;
   animation-fill-mode: forwards;
-  background: rgba(52, 27, 43, 0.5);
+  background: rgba(52, 27, 43, 0.25);
   color: #fff;
   display: inline-block;
   opacity: 0;
