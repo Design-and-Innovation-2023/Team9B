@@ -6743,23 +6743,6 @@ video {
   border-radius:9999px
 }
 
-.rounded{
-  border-radius:0.25rem
-}
-
-.rounded-3xl{
-  border-radius:1.5rem
-}
-
-.rounded-s-full{
-  border-start-start-radius:9999px;
-  border-end-start-radius:9999px
-}
-
-.rounded-ss-full{
-  border-start-start-radius:9999px
-}
-
 .border{
   border-width:1px
 }
@@ -8757,6 +8740,11 @@ input[type="text"],
 
 .icon.circle.fa-dribbble:hover {
   background: #df93b8;
+}
+
+.icon.circle.fa-discourse {
+  background: #ffffff;
+  color: #000000;
 }
 
 .icon.featured {

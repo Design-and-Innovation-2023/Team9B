@@ -1979,7 +1979,10 @@ input, select, textarea {
 				.icon.circle.fa-dribbble:hover {
 					background: #df93b8;
 				}
-
+			.icon.circle.fa-discourse {
+				background: #ffffff;
+				color: #000000;
+			}
 		.icon.featured {
 			cursor: default;
 			display: block;
