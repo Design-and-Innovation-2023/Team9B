@@ -43,7 +43,8 @@
 #python-example {
     width:  330px;
     height: 544px;
-    background: #D3D3D3;
+    background: #F2F2F2;
+    color: #808080;
     border-radius: 5px;
     font-family:"Cascadia Code";
     font-size: 12px;
@@ -89,7 +90,7 @@
   }
 
   .hint {
-    color:gray;
+    color: #808080;
   }
 
   .instructions {
