@@ -20,8 +20,8 @@ export default function RootLayout({ children }) {
                               <PyScriptProvider>
                                     <ErrorBoundary fallback="Error">
                                           <py-config>packages = ["numpy","pandas","matplotlib","scikit-learn","asyncio"]</py-config>
-                                          <Script src="https://unpkg.com/@espruino-tools/core@latest/min/main.min.js" strategy="afterInteractive"></Script>
-                                          <Script src="../../js_script1.js"                                           strategy="afterInteractive"></Script>
+                                          <Script src="https://unpkg.com/@espruino-tools/core@latest/min/main.min.js" strategy="beforeInteractive"></Script>
+                                          <Script src="../../js_script1.js"                                           strategy="afterInteractive" ></Script>
                                     </ErrorBoundary>
                                     {children}
                               </PyScriptProvider>
