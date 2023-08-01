@@ -1,6 +1,6 @@
 'use client'
 
-import                                   '../styles/OpenEnded1.css'
+import                                   '../styles/Openended1.css'
 import React, { useRef, useEffect } from "react";
 import Python                       from '../components/Python';
 
