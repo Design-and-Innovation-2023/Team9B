@@ -1,4 +1,4 @@
-from js import curio,_forward,_backward,_turnLeft,_turnRight,_reverseLeft,_reverseRight,_rotateLeft,_rotateRight,_stopRobot,_toggleConnect,sleep
+from js import _forward,_backward,_turnLeft,_turnRight,_reverseLeft,_reverseRight,_rotateLeft,_rotateRight,_stopRobot,_toggleConnect,sleep,curio
 import asyncio
 
 def moveforward():
