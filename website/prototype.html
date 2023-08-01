@@ -13,16 +13,24 @@
 
         <!-- Header -->
         <header id="header">
-            <div style="height: 30px;"></div>
+            <h1 id="logo">
+                <div class="flex space-x-4 items-center">
+                    <div>
+                        <img src="images/CurioLogo.png" alt="curio" width="20" height="20">
+                    </div>
+                    
+                    <div>
+                        <a href="index.html">
+                            Home
+                        </a>
+                    </div>
+                </div>
+            </h1>
             <nav id="nav">
                 <ul>
-                    <li class="current"><a href="index.html">Home</a></li>
-                        <a href="#">About</a>
-                        <ul>
-                            <li><a href="dailies.html">Dailies</a></li>
-                            <li><a href="reflection.html">Reflection</a></li>
-                        </ul>
-                    </li>
+                    <li class="hover:bg-sky-300/75"><a href="dailies.html">Dailies</a></li>
+                    <li class="hover:bg-sky-300/75"><a href="reflection.html">Reflection</a></li>
+                    <li class="hover:bg-sky-300/75"><a href="prototype.html">Prototype</a></li>
                 </ul>
             </nav>
         </header>
@@ -94,13 +102,12 @@
         <footer id="footer">
 
             <ul class="icons">
-                <li><a href="#" class="icon brands circle fa-twitter"><span class="label">Twitter</span></a></li>
-                <li><a href="#" class="icon brands circle fa-facebook-f"><span class="label">Facebook</span></a></li>
-                <li><a href="#" class="icon brands circle fa-google-plus-g"><span class="label">Google+</span></a></li>
                 <li><a href="#" class="icon brands circle fa-github"><span class="label">Github</span></a></li>
-                <li><a href="#" class="icon brands circle fa-dribbble"><span class="label">Dribbble</span></a></li>
+                <li><a href="#" class="icon brands circle fa-discourse"><span class="label">Discourse</span></a></li>
             </ul>
-
+            <ul class="copyright">
+                <li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+            </ul>
         </footer>
 
     </div>
