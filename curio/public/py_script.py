@@ -1,34 +1,38 @@
-from js import toggleConnect,forward,backward,turnLeft,turnRight,reverseLeft,reverseRight,rotateLeft,rotateRight,sleep,stopRobot
+from js import _forward,_backward,_turnLeft,_turnRight,_reverseLeft,_reverseRight,_rotateLeft,_rotateRight,_stopRobot,_toggleConnect,sleep
 import asyncio
 
 def moveforward():
-    forward.click()
+    _forward.click()
     return
 
 def movebackward():
-    backward.click()
+    _backward.click()
     return
 
 def rotateLeft():
-    rotateLeft.click()
+    _rotateLeft.click()
     return
 
 def rotateRight():
-    rotateRight.click()
+    _rotateRight.click()
     return
 
 def turnLeft():
-    turnLeft.click()
+    _turnLeft.click()
     return
 
 def turnRight():
-    turnRight.click()
+    _turnRight.click()
     return
 
 def reverseLeft():
-    reverseLeft.click()
+    _reverseLeft.click()
     return
 
 def reverseRight():
-    reverseRight.click()
+    _reverseRight.click()
+    return
+
+def stopRobot():
+    _stopRobot.click()
     return
