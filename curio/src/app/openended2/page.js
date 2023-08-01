@@ -29,17 +29,22 @@ async def shuriken_movement2():
 		# curio.reverseRight()
 		# curio.rotateRight()
 		# curio.stop()
+
 		curio.backward()
 		print("Moving backward")
+
 		await curio.sleep(1800)
 		print("Sleeping")
+
 		curio.rotateLeft()
 		print("Rotate Left")
+
 		await curio.sleep(1800)
 		print("Sleeping")
+
 	await curio.disconnect()
 	print("Disconnected")
-asyncio.ensure_future( shuriken_movement() )`;
+asyncio.ensure_future( shuriken_movement2() )`;
 
     const runOnce = useRef(true);
     /*----------------------------------------------------------------------------------------------------------------*/

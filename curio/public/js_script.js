@@ -18,17 +18,17 @@ class CurioController extends ESPT_core.DeviceController
 		return this.state;
 	}
 
-    connect()
+    async connect()
     {
-        super.connect();
+        await super.connect();
         console.log("Connecting to curio robot");
         this.setConnection(true);
         return;
     }
 
-    disconnect()
+    async disconnect()
     {
-        super.disconnect();
+        await super.disconnect();
         console.log("Disconnecting from curio robot");
         this.setConnection(false);
         return;
