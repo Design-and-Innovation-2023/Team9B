@@ -10,6 +10,7 @@ export default function Banner() {
                 <div className="Banner">
                         <Link href="/">Curio Controller</Link><br/>
                         <Link href="/openended1">Open Ended Python Question #1</Link><br/>
+                        <Link href="/openended2">Open Ended Python Question #2</Link><br/>
                         <hr />
                 </div>
             </ErrorBoundary>
