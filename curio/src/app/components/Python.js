@@ -208,7 +208,7 @@ export default function Python( { instructions , hints } ) {
                                                 <ErrorBoundary fallback="Error">
 
                                                         <ErrorBoundary fallback="Error">
-                                                            <Script    src="https://unpkg.com/@espruino-tools/core@latest/min/main.min.js"></Script>
+                                                            <Script    src="https://unpkg.com/@espruino-tools/core@latest/min/main.min.js" strategy="beforeInteractive"></Script>
                                                             <Script    src="./js_script.js" strategy="afterInteractive"></Script>
                                                             <py-script src="./py_script.py"></py-script>
                                                         </ErrorBoundary>
