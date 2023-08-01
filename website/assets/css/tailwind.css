@@ -6727,6 +6727,10 @@ video {
   resize:both
 }
 
+.list-none{
+  list-style-type:none
+}
+
 .items-center{
   align-items:center
 }
