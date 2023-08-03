@@ -5,189 +5,181 @@
     <title>Implementation</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="dist/tailwind.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+    <link rel="stylesheet" href="assets/css/tailwind.css" />
+    <link rel="shortcut icon" type="x-icon" href="images/CurioLogo.png">
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 </head>
-<body class="index is-preload">
+<body class=" is-preload">
 <div id="page-wrapper">
 
     <!-- Header -->
-    <header id="header" class="alt">
-        <div style="height: 30px;"></div>
+    <header id="header">
+        <h1 id="logo">
+            <div class="flex space-x-4 items-center">
+                <div>
+                    <img src="images/CurioLogo.png" alt="curio" width="20" height="20">
+                </div>
+
+                <div>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </div>
+            </div>
+        </h1>
         <nav id="nav">
             <ul>
-                <li class="current hover:bg-sky-300/75"><a href="index.html">Home</a></li>
-                <li class="submenu hover:bg-sky-300/75">
-                    <a href="#" class="fa-angle-down:before">About</a>
-                    <ul>
-                        <li><a href="dailies.html">Dailies</a></li>
-                        <li><a href="reflection.html">Reflection</a></li>
-                    </ul>
-                </li>
+                <li class="hover:bg-sky-300/75"><a href="dailies.html">Dailies</a></li>
+                <li class="hover:bg-sky-300/75"><a href="reflection.html">Reflection</a></li>
+                <li class="hover:bg-sky-300/75"><a href="prototype.html">Prototype</a></li>
+                <li class="hover:bg-sky-300/75"><a href="implementation.html">Final Product</a></li>
+                <li class="hover:bg-sky-300/75"><a href="about.html">About Us</a></li>
             </ul>
         </nav>
-
     </header>
-
-    <!-- Banner -->
-    <section id="banner"style="background-image: url('CurioLogo.png'); background-size: contain; background-position: center;">
-
-        <!--
-            ".inner" is set up as an inline-block so it automatically expands
-            in both directions to fit whatever's inside it. This means it won't
-            automatically wrap lines, so be sure to use line breaks where
-            appropriate (<br />).
-        -->
-        <div class="inner">
-
-            <header>
-                <h2>Curio</h2>
-            </header>
-            <p><strong>An educational platform</strong></p>
-            <footer>
-                <ul class="buttons stacked">
-                    <li><a href="#main" class="button fit scrolly">Tell Me More</a></li>
-                </ul>
-            </footer>
-
-        </div>
-
-
-    </section>
 
     <!-- Main -->
     <article id="main">
 
-        <section class="special container">
-            <h2>Project Description.</h2>
-            <p>The objective of the project is to design an engaging and open-ended educational activity by using
-                <br />
-                the Curio platform, which is a web-based education tool, and incorporating robots to promote
-                <br />
-                student engagement. By leveraging the robot's capability, the students will be able to foster
-                <br/>
-                creativity and problem-solving skills in a hands-on and interactive manner. Through the Curio platform
-                <br/>
-                and robot, students can work in teams to solve problems and have an open discussion to share knowledge.
-            </p>
-            <br/>
-            <h2>Problem Statement </h2>
-            <p> The team has to create an engaging and open-ended activities for the computer science course.
-                <br />
-                The challenge is to ensure that students will proactively participate in activities, diversify
-                <br />
-                the content of topic and align closely with the concepts intended for the learning outcome
-            </p>
-
-        </section>
+        <header class="special container">
+            <h2><strong>Implementation</strong></h2>
+            <p>Where we share our final product.</p>
+            <p> Click GitHub icon below to access the implementation code</p>
+        </header>
 
         <!-- One -->
-        <section class="wrapper container special-alt bg-sky-400 text-white">
-            <div class="row gtr-50">
-                <div class="col-8 col-12-narrower">
-
-                    <header>
-                        <h2>Prototype Ideas</h2>
-                    </header>
-                    <p>Considering that the activities has to be engaging, the team has craft out ideas using the robot to make the classes interesting.
-                        <br/>
-                        1. Racing Robot
-                        <br/>
-                        2. Robot Maze
-                        <br/>
-                        3. Drawing with Robot
-
-                    </p>
-                    <footer>
-                        <ul class="buttons">
-                            <li><a href="prototype.html" class="button">Find Out More</a></li>
-                        </ul>
-                    </footer>
-
+        <section class="wrapper style2 special container">
+            <header>
+                <h2><strong>CurioDraw Poster</strong></h2>
+            </header>
+            <div class="flex justify-center">
+                <img src="images/poster.jpg" alt="" style="height:600px; width:500px;">
+            </div>
+        </section>
+            <div class="row gtr-150">
+                <div class="col-3 col-12-narrower"></div>
+                <div class="col-6 col-12-narrower">
+                    <!-- Content -->
+                    <div class="content">
+                        <section>
+                            <header>
+                                <h3><strong>Week 2</strong></h3>
+                            </header>
+                            <p>
+                                After compiling the customer's requirements, we started brainstorming and crafting out prototype ideas.
+                                To better understand the Curio platform and its operation, we sought help from the professors and teacher assistants who provided us both GitHub and the TryCurio website.
+                                With the information given, we were able to start creating our website and program the robots movement based on the prototype decided, for the next Customer Day.
+                            </p>
+                        </section>
+                    </div>
                 </div>
-                <div class="col-4 col-12-narrower imp-narrower">
+
+                <div class="col-3 col-12-narrower">
+                    <!-- Right Sidebar -->
+                    <div class="sidebar">
+                        <img src="images/coding.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="row gtr-150">
+                <div class="col-3 col-12-narrower">
+                    <!-- Left Sidebar -->
+                    <div class="sidebar">
+                        <img src="images/presentation.png" alt="">
+                    </div>
+                </div>
+                <div class="col-6 col-12-narrower">
+                    <!-- Content -->
+                    <div class="content">
+                        <section>
+                            <header>
+                                <h3><strong>Week 3</strong></h3>
+                            </header>
+                            <p>
+                                In the last week of our project, we conducted crucial usability tests with potential users.
+                                With their valuable feedback ,we polished the user interface and functionalities to aim for a seamless user experience. Additionally, we created an eye-catching poster, showcasing the product's key features and benefits.
+                                The poster became a visual representation of our hard work and innovation, ready to make a memorable impression during the product presentation.
+                            </p>
+                        </section>
+                    </div>
                 </div>
             </div>
         </section>
-
         <!-- Two -->
-        <section class="wrapper style2 container special-alt">
-            <div class="row gtr-50">
-                <div class="col-8 col-12-narrower">
+        <section class="wrapper style4 container">
+            <header>
+                <h2 style="text-align:center;"> Customer Day Summary</h2>
+            </header>
+            <br/>
+            <div class="row gtr-150 ">
+                <!--							<div class="col-3 col-12-narrower">-->
+                <!--								&lt;!&ndash; Left Sidebar &ndash;&gt;-->
+                <!--								<div class="sidebar">-->
+                <!--									<img src="images/discussion.png" alt="">-->
+                <!--								</div>-->
+                <!--							</div>-->
+                <div class="col-12 col-12-narrower">
+                    <!-- Content -->
+                    <div class="content">
+                        <section>
+                            <header>
+                                <h3><strong>Customer Day 1</strong></h3>
+                            </header>
+                            <p>
+                                On first Customer Day meeting, we prepared questions for requirement gathering and finding out the customers' expectation. We also informed the customers of the time constrain of the project.
+                                Based on answers received, we need to design an activity for the course and using the robot to keep students engaged while learning.
+                                The customers also provided as with examples and stating that they want the activity to contain open-ended questions because they want to encourage students to think about their codes before executing.
+                                We also asked about the difficulties faced when teaching the courses and what they want to achieve with the Curio Platform.
+                            </p>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <div class="row gtr-150">
+                <div class="col-12 col-12-narrower"></div>
+                <!-- Content -->
+                <div class="content">
                     <section>
-                        <span class="text-green-500 icon solid featured fa-check"></span>
                         <header>
-                            <h3>This is Something</h3>
+                            <h3><strong>Customer Day 2</strong></h3>
                         </header>
-                        <p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-                    </section>
-
-                    <section>
-                        <span class="text-green-500 icon solid featured fa-check"></span>
-                        <header>
-                            <h3>Also Something</h3>
-                        </header>
-                        <p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-                    </section>
-                    <section>
-                        <span class="text-green-500 icon solid featured fa-check"></span>
-                        <header>
-                            <h3>Probably Something</h3>
-                        </header>
-                        <p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
+                        <p>
+                            For the second customer day, we had to demo our working product and update our current progress. After our showcase, the customers provided us valuable feedback to improve our products.
+                            The following comments were given:
+                        </p>
+                        <ol>
+                            <li>Instead of move value a,b, put move in words like left, right, at certain angle or move how many units of spaces</li>
+                            <li>Turtle programming</li>
+                            <li>Set fixed move functions</li>
+                            <li>Draw polygon with number of sides instead of just circle and square</li>
+                            <li>Unlocking functions as progress</li>
+                            <li>Secure the pencil more securely to robot</li>
+                        </ol>
+                        <p></p>
                     </section>
                 </div>
-
-
             </div>
-            <div class="col-4 col-12-narrower imp-narrower">
-            </div>
+        </section>
+    </article>
+
+    <!-- Footer -->
+    <footer id="footer">
+
+        <ul class="icons">
+            <li><a href="#" class="icon brands circle fa-github"><span class="label">Github</span></a></li>
+            <li><a href="#" class="icon brands circle fa-discourse"><span class="label">Discourse</span></a></li>
+        </ul>
+        <ul class="copyright">
+            <li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+    </footer>
 </div>
-</section>
-
-<!-- Three -->
-
-
-<!--			&lt;!&ndash; CTA &ndash;&gt;-->
-<!--				<section id="cta">-->
-
-<!--					<header>-->
-<!--						<h2>Ready to do <strong>something</strong>?</h2>-->
-<!--						<p>Proin a ullamcorper elit, et sagittis turpis integer ut fermentum.</p>-->
-<!--					</header>-->
-<!--					<footer>-->
-<!--						<ul class="buttons">-->
-<!--							<li><a href="#" class="button primary">Take My Money</a></li>-->
-<!--							<li><a href="#" class="button">LOL Wut</a></li>-->
-<!--						</ul>-->
-<!--					</footer>-->
-
-<!--				</section>-->
-
-<!--			&lt;!&ndash; Footer &ndash;&gt;-->
-<!--				<footer id="footer">-->
-
-<!--					<ul class="icons">-->
-<!--						<li><a href="#" class="icon brands circle fa-twitter"><span class="label">Twitter</span></a></li>-->
-<!--						<li><a href="#" class="icon brands circle fa-facebook-f"><span class="label">Facebook</span></a></li>-->
-<!--						<li><a href="#" class="icon brands circle fa-google-plus-g"><span class="label">Google+</span></a></li>-->
-<!--						<li><a href="#" class="icon brands circle fa-github"><span class="label">Github</span></a></li>-->
-<!--						<li><a href="#" class="icon brands circle fa-dribbble"><span class="label">Dribbble</span></a></li>-->
-<!--					</ul>-->
-
-<!--					<ul class="copyright">-->
-<!--						<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>-->
-<!--					</ul>-->
-
-<!--				</footer>-->
-
-<!--		</div>-->
 
 <!-- Scripts -->
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery.dropotron.min.js"></script>
 <script src="assets/js/jquery.scrolly.min.js"></script>
+<script src="assets/js/jquery.scrollgress.min.js"></script>
 <script src="assets/js/jquery.scrollex.min.js"></script>
 <script src="assets/js/browser.min.js"></script>
 <script src="assets/js/breakpoints.min.js"></script>
