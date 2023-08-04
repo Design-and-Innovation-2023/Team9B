@@ -6763,16 +6763,6 @@ video {
   background-color:rgb(56 189 248 / var(--tw-bg-opacity))
 }
 
-.bg-orange-500{
-  --tw-bg-opacity:1;
-  background-color:rgb(249 115 22 / var(--tw-bg-opacity))
-}
-
-.bg-orange-300{
-  --tw-bg-opacity:1;
-  background-color:rgb(253 186 116 / var(--tw-bg-opacity))
-}
-
 .text-center{
   text-align:center
 }
@@ -6782,14 +6772,9 @@ video {
   color:rgb(34 211 238 / var(--tw-text-opacity))
 }
 
-.text-green-500{
+.text-orange-400{
   --tw-text-opacity:1;
-  color:rgb(34 197 94 / var(--tw-text-opacity))
-}
-
-.text-orange-500{
-  --tw-text-opacity:1;
-  color:rgb(249 115 22 / var(--tw-text-opacity))
+  color:rgb(251 146 60 / var(--tw-text-opacity))
 }
 
 .text-white{
@@ -6800,11 +6785,6 @@ video {
 .text-yellow-400{
   --tw-text-opacity:1;
   color:rgb(250 204 21 / var(--tw-text-opacity))
-}
-
-.text-orange-400{
-  --tw-text-opacity:1;
-  color:rgb(251 146 60 / var(--tw-text-opacity))
 }
 
 .ring-2{
@@ -9014,7 +8994,6 @@ input[type="button"].small,
 
 .wrapper.style2 {
   background-color: #83d3c9;
-  background-image: url("images/light-bl.svg"), url("images/light-br.svg");
   background-position: bottom left, bottom right;
   background-repeat: no-repeat, no-repeat;
   background-size: 25em, 25em;
